@@ -1,0 +1,34 @@
+/* Custom styles can go here */
+body {
+    background-color: #f8f9fa;
+}
+
+.puzzle-square {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* This creates the square aspect ratio */
+    background-color: #6a0dad; /* A nice purple */
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.2s ease-in-out;
+}
+
+.puzzle-square:hover {
+    transform: scale(1.05);
+    color: white;
+}
+
+.puzzle-square-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
