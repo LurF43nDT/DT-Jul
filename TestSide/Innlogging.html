@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Julekalender 2024</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        background: linear-gradient(
+          135deg,
+          #1a472a 0%,
+          #2d5a3d 50%,
+          #1a472a 100%
+        );
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* Snøeffekt */
+      .snowflake {
+        position: fixed;
+        top: -10px;
+        color: white;
+        font-size: 1em;
+        opacity: 0.8;
+        animation: fall linear infinite;
+        pointer-events: none;
+        z-index: 1000;
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(100vh);
+        }
+      }
+
+      /* Container for alle sider */
+      .page {
+        display: none;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .page.active {
+        display: block;
+      }
+
+      /* Header */
+      header {
+        text-align: center;
+        padding: 40px 20px;
+        color: white;
+        position: relative;
+      }
+
+      .logo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 2.5em;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        text-decoration: none;
+        z-index: 100;
+      }
+
+      .logo:hover {
+        transform: scale(1.1) rotate(10deg);
+      }
+
+      h1 {
+        font-size: 3em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        margin-bottom: 10px;
+        color: #ffd700;
+      }
+
+      .subtitle {
+        font-size: 1.2em;
+        color: #ffebb3;
+      }
+
+      /* Forside */
+      .hero {
+        text-align: center;
+        padding: 60px 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .hero-content {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 50px 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        position: relative;
+      }
+
+      .hero-content::before {
+        content: "🎄";
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 4em;
+      }
+
+      .hero h2 {
+        color: #c41e3a;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        color: #333;
+        font-size: 1.2em;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 15px 40px;
+        background: #c41e3a;
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 1.1em;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(196, 30, 58, 0.4);
+      }
+
+      .btn:hover {
+        background: #a01729;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(196, 30, 58, 0.6);
+      }
+
+      /* Oppgaveside (7 knapper) */
+      .tasks-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .tasks-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .task-card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .task-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, #c41e3a, #ffd700, #165b33);
+      }
+
+      .task-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .task-number {
+        font-size: 3em;
+        color: #c41e3a;
+        margin-bottom: 15px;
+      }
+
+      .task-card h3 {
+        color: #333;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+
+      .task-card p {
+        color: #666;
+        font-size: 1em;
+      }
+
+      /* Oppgavemal */
+      .task-page {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .task-content {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .task-content h2 {
+        color: #c41e3a;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        border-bottom: 3px solid #ffd700;
+        padding-bottom: 15px;
+      }
+
+      .task-content .task-description {
+        color: #333;
+        font-size: 1.2em;
+        line-height: 1.8;
+        margin-bottom: 30px;
+      }
+
+      .task-content .task-details {
+        background: #f8f9fa;
+        padding: 25px;
+        border-radius: 10px;
+        margin: 20px 0;
+        border-left: 5px solid #165b33;
+      }
+
+      .task-actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+
+      .complete-btn {
+        flex: 1;
+        min-width: 200px;
+        padding: 15px 30px;
+        background: linear-gradient(135deg, #165b33 0%, #0f3d21 100%);
+        color: white;
+        text-decoration: none;
+        border: none;
+        border-radius: 25px;
+        font-size: 1.1em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(22, 91, 51, 0.4);
+      }
+
+      .complete-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(22, 91, 51, 0.6);
+      }
+
+      .complete-btn.completed {
+        background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
+        color: #333;
+      }
+
+      .back-btn {
+        flex: 1;
+        min-width: 200px;
+        display: inline-block;
+        padding: 15px 30px;
+        background: #165b33;
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+      }
+
+      .back-btn {
+        flex: 1;
+        min-width: 200px;
+        display: inline-block;
+        padding: 15px 30px;
+        background: #165b33;
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        text-align: center;
+      }
+
+      .back-btn:hover {
+        background: #0f3d21;
+        transform: translateY(-2px);
+      }
+
+      /* Progress/Oversikt side */
+      .progress-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .progress-card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        margin-bottom: 30px;
+      }
+
+      .progress-card h2 {
+        color: #c41e3a;
+        font-size: 2em;
+        margin-bottom: 20px;
+        border-bottom: 3px solid #ffd700;
+        padding-bottom: 15px;
+      }
+
+      .user-progress {
+        margin-top: 30px;
+      }
+
+      .user-item {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        border-left: 5px solid #165b33;
+      }
+
+      .user-name {
+        font-size: 1.3em;
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .progress-bar-container {
+        background: #e0e0e0;
+        height: 30px;
+        border-radius: 15px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        position: relative;
+      }
+
+      .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #165b33, #27a356);
+        transition: width 0.5s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+      }
+
+      .completed-tasks {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+
+      .task-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px 12px;
+        background: #ffd700;
+        color: #333;
+        border-radius: 20px;
+        font-size: 0.9em;
+        font-weight: bold;
+      }
+
+      .task-badge.incomplete {
+        background: #e0e0e0;
+        color: #999;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .stat-card {
+        background: linear-gradient(135deg, #c41e3a, #a01729);
+        color: white;
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 3em;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .stat-label {
+        font-size: 1em;
+        opacity: 0.9;
+      }
+
+      /* Login side */
+      .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 200px);
+        padding: 40px 20px;
+      }
+
+      .login-box {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 50px 40px;
+        max-width: 450px;
+        width: 100%;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        position: relative;
+      }
+
+      .login-icon {
+        font-size: 4em;
+        margin-bottom: 20px;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .login-box h2 {
+        color: #c41e3a;
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
+
+      .login-subtitle {
+        color: #666;
+        margin-bottom: 30px;
+      }
+
+      .login-form {
+        text-align: left;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 8px;
+        font-size: 0.95em;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        font-size: 1em;
+        transition: all 0.3s ease;
+        background: white;
+      }
+
+      .form-group input:focus {
+        outline: none;
+        border-color: #c41e3a;
+        box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.1);
+      }
+
+      .form-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        font-size: 0.9em;
+      }
+
+      .checkbox-label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        color: #666;
+      }
+
+      .checkbox-label input {
+        margin-right: 8px;
+        cursor: pointer;
+      }
+
+      .forgot-link {
+        color: #c41e3a;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .forgot-link:hover {
+        color: #a01729;
+        text-decoration: underline;
+      }
+
+      .login-btn {
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(135deg, #c41e3a 0%, #a01729 100%);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.1em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(196, 30, 58, 0.4);
+      }
+
+      .login-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(196, 30, 58, 0.6);
+      }
+
+      .signup-link {
+        margin-top: 25px;
+        color: #666;
+        font-size: 0.95em;
+      }
+
+      .signup-link a {
+        color: #165b33;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      .signup-link a:hover {
+        color: #0f3d21;
+        text-decoration: underline;
+      }
+
+      /* Navigation dots */
+      .nav-dots {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 100;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .dot.active {
+        background: white;
+        transform: scale(1.3);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Logg inn side -->
+    <div class="page active" id="login">
+      <a href="#" class="logo" onclick="showPage('login'); return false;">🎄</a>
+      <header>
+        <h1>Julekalender 2024</h1>
+        <p class="subtitle">Logg inn for å starte juleeventyret</p>
+      </header>
+      <div class="login-container">
+        <div class="login-box">
+          <div class="login-icon"></div>
+          <h2>Velkommen tilbake!</h2>
+          <p class="login-subtitle">
+            Fyll inn dine opplysninger for å fortsette
+          </p>
+
+          <form onsubmit="handleLogin(event)" class="login-form">
+            <div class="form-group">
+              <label for="username">Brukernavn</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Skriv inn brukernavn"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Passord</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Skriv inn passord"
+                required
+              />
+            </div>
+
+            <div class="form-options">
+              <label class="checkbox-label">
+                <input type="checkbox" name="remember" />
+                <span>Husk meg</span>
+              </label>
+              <a href="#" class="forgot-link">Glemt passord?</a>
+            </div>
+
+            <button type="submit" class="login-btn">Logg inn</button>
+          </form>
+
+          <div class="signup-link">
+            Har du ikke konto? <a href="#">Registrer deg her</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forside -->
+    <div class="page" id="home">
+      <a href="#" class="logo" onclick="showPage('home'); return false;">🎄</a>
+      <header>
+        <h1>Julekalender 2024</h1>
+        <p class="subtitle">Velkommen til årets juleoppgaver</p>
+      </header>
+      <div class="hero">
+        <div class="hero-content">
+          <h2>God Jul!</h2>
+          <p>
+            Gleder deg til julen? Her finner du 7 spennende juleoppgaver som
+            gjør ventetiden til julaften ekstra koselig. Hver oppgave er full av
+            julestemning og moro!
+          </p>
+          <p>Klikk på knappen under for å starte eventyr</p>
+          <a href="#" class="btn" onclick="showPage('tasks'); return false;"
+            >Start julekalenderen</a
+          >
+          <a
+            href="#"
+            class="btn"
+            onclick="showPage('progress'); return false;"
+            style="background: #165b33; margin-top: 15px"
+            >Se oversikt</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Oppgaveoversikt -->
+    <div class="page" id="tasks">
+      <a href="#" class="logo" onclick="showPage('home'); return false;">🎄</a>
+      <header>
+        <h1>Juleoppgaver</h1>
+        <p class="subtitle">Velg en oppgave og start moroa!</p>
+      </header>
+      <div class="tasks-container">
+        <div class="tasks-grid">
+          <div class="task-card" onclick="showPage('task1')">
+            <div class="task-number">1</div>
+            <h3>Juledekorasjon</h3>
+            <p>Lag din egen julestjerne</p>
+          </div>
+          <div class="task-card" onclick="showPage('task2')">
+            <div class="task-number">2</div>
+            <h3>Julebaking</h3>
+            <p>Lag verdens beste pepperkaker</p>
+          </div>
+          <div class="task-card" onclick="showPage('task3')">
+            <div class="task-number">3</div>
+            <h3>Julemusikk</h3>
+            <p>Syng julekaraoké</p>
+          </div>
+          <div class="task-card" onclick="showPage('task4')">
+            <div class="task-number">4</div>
+            <h3>Julekort</h3>
+            <p>Design unike julekort</p>
+          </div>
+          <div class="task-card" onclick="showPage('task5')">
+            <div class="task-number">5</div>
+            <h3>Julefilm</h3>
+            <p>Se en klassisk julefilm</p>
+          </div>
+          <div class="task-card" onclick="showPage('task6')">
+            <div class="task-number">6</div>
+            <h3>Julegaver</h3>
+            <p>Pakk inn alle gavene</p>
+          </div>
+          <div class="task-card" onclick="showPage('task7')">
+            <div class="task-number">7</div>
+            <h3>Julefest</h3>
+            <p>Planlegg den ultimate julefesten</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Oppgave 1 -->
+    <div class="page" id="task1">
+      <div class="task-page">
+        <div class="task-content">
+          <h2>Oppgave 1: Juledekorasjon</h2>
+          <div class="task-description">
+            <p>
+              I dag skal vi lage en vakker julestjerne som kan henges i vinduet
+              eller på juletreet!
+            </p>
+          </div>
+          <div class="task-details">
+            <h3>Hva trenger du:</h3>
+            <ul>
+              <li>Farget papir (gull, sølv eller rødt)</li>
+              <li>Saks</li>
+              <li>Lim</li>
+              <li>Glitter (valgfritt)</li>
+              <li>Tråd til oppheng</li>
+            </ul>
+            <h3 style="margin-top: 20px">Fremgangsmåte:</h3>
+            <ol>
+              <li>Klipp ut stjerneskabelonen</li>
+              <li>Dekorér med glitter</li>
+              <li>Fest tråd for oppheng</li>
+              <li>Heng opp og nyt resultatet!</li>
+            </ol>
+          </div>
+          <div class="task-actions">
+            <button class="complete-btn" onclick="completeTask(1)">
+              ✓ Marker som gjort
+            </button>
+            <a
+              href="#"
+              class="back-btn"
+              onclick="showPage('tasks'); return false;"
+              >← Tilbake til oppgaver</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Oppgave 2-7 (samme struktur) -->
+    <div class="page" id="task2">
+      <a href="#" class="logo" onclick="showPage('home'); return false;">🎄</a>
+      <div class="task-page">
+        <div class="task-content">
+          <h2>Oppgave 2: Julebaking</h2>
+          <div class="task-description">
+            <p>
+              Tid for å fylle kjøkkenet med deilig duft av nybakte pepperkaker!
+            </p>
+          </div>
+          <div class="task-details">
+            <h3>Ingredienser:</h3>
+            <p>Her legger du inn oppgavedetaljer for oppgave 2...</p>
+          </div>
+          <div class="task-actions">
+            <button class="complete-btn" onclick="completeTask(2)">
+              ✓ Marker som gjort
+            </button>
+            <a
+              href="#"
+              class="back-btn"
+              onclick="showPage('tasks'); return false;"
+              >← Tilbake til oppgaver</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="task3">
+      <a href="#" class="logo" onclick="showPage('home'); return false;">🎄</a>
+      <div class="task-page">
+        <div class="task-content">
+          <h2>Oppgave 3: Julemusikk</h2>
+          <div class="task-description">
+            <p>Synger du med på julesangene? Nå er det tid for julekonsert!</p>
+          </div>
+          <div class="task-details">
+            <p>Her legger du inn oppgavedetaljer for oppgave 3...</p>
+          </div>
+          <div class="task-actions">
+            <button class="complete-btn" onclick="completeTask(3)">
+              ✓ Marker som gjort
+            </button>
+            <a
+              href="#"
+              class="back-btn"
+              onclick="showPage('tasks'); return false;"
+              >← Tilbake til oppgaver</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="task4">
+      <a href="#" class="logo" onclick="showPage('home'); return false;">🎄</a>
+      <div class="task-page">
+        <div class="task-content">
+          <h2>Oppgave 4: Julekort</h2>
+          <div class="task-description">
+            <p>Lag personlige julekort til alle du er glad i!</p>
+          </div>
+          <div class="task-details">
+            <p>Her legger du inn oppgavedetaljer for oppgave 4...</p>
+          </div>
+          <div class="task-actions">
+            <button class="complete-btn" onclick="completeTask(4)">
+              ✓ Marker som gjort
+            </button>
+            <a
+              href="#"
+              class="back-btn"
+              onclick="showPage('tasks'); return false;"
+              >← Tilbake til oppgaver</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="task5">
+      <a href="#" class="logo" onclick="showPage('home'); return false;">🎄</a>
+      <div class="task-page">
+        <div class="task-content">
+          <h2>Oppgave 5: Julefilm</h2>
+          <div class="task-description">
+            <p>Kos deg med en klassisk julefilm sammen med familien!</p>
+          </div>
+          <div class="task-details">
+            <p>Her legger du inn oppgavedetaljer for oppgave 5...</p>
+          </div>
+          <div class="task-actions">
+            <button class="complete-btn" onclick="completeTask(5)">
+              ✓ Marker som gjort
+            </button>
+            <a
+              href="#"
+              class="back-btn"
+              onclick="showPage('tasks'); return false;"
+              >← Tilbake til oppgaver</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="task6">
+      <a href="#" class="logo" onclick="showPage('home'); return false;">🎄</a>
+      <div class="task-page">
+        <div class="task-content">
+          <h2>Oppgave 6: Julegaver</h2>
+          <div class="task-description">
+            <p>Tid for å pakke inn alle julegavene på kreative måter!</p>
+          </div>
+          <div class="task-details">
+            <p>Her legger du inn oppgavedetaljer for oppgave 6...</p>
+          </div>
+          <div class="task-actions">
+            <button class="complete-btn" onclick="completeTask(6)">
+              ✓ Marker som gjort
+            </button>
+            <a
+              href="#"
+              class="back-btn"
+              onclick="showPage('tasks'); return false;"
+              >← Tilbake til oppgaver</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="task7">
+      <a href="#" class="logo" onclick="showPage('home'); return false;">🎄</a>
+      <div class="task-page">
+        <div class="task-content">
+          <h2>Oppgave 7: Julefest</h2>
+          <div class="task-description">
+            <p>Planlegg den perfekte julefesten med familie og venner!</p>
+          </div>
+          <div class="task-details">
+            <p>Her legger du inn oppgavedetaljer for oppgave 7...</p>
+          </div>
+          <div class="task-actions">
+            <button class="complete-btn" onclick="completeTask(7)">
+              ✓ Marker som gjort
+            </button>
+            <a
+              href="#"
+              class="back-btn"
+              onclick="showPage('tasks'); return false;"
+              >← Tilbake til oppgaver</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Oversikt/Progress side -->
+    <div class="page" id="progress">
+      <a href="#" class="logo" onclick="showPage('home'); return false;">🎄</a>
+      <header>
+        <h1>Oversikt</h1>
+        <p class="subtitle">Se hvem som har fullført oppgavene</p>
+      </header>
+      <div class="progress-container">
+        <div class="progress-card">
+          <h2>Statistikk</h2>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number" id="totalUsers">0</div>
+              <div class="stat-label">Totale brukere</div>
+            </div>
+            <div
+              class="stat-card"
+              style="background: linear-gradient(135deg, #165b33, #0f3d21)"
+            >
+              <div class="stat-number" id="totalCompleted">0</div>
+              <div class="stat-label">Fullførte oppgaver</div>
+            </div>
+            <div
+              class="stat-card"
+              style="background: linear-gradient(135deg, #ffd700, #ffb700)"
+            >
+              <div class="stat-number" id="completionRate">0%</div>
+              <div class="stat-label">Gjennomføringsrate</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="progress-card">
+          <h2>Brukerfremdrift</h2>
+          <div class="user-progress" id="userProgressList">
+            <!-- Brukerfremdrift vises her dynamisk -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Data struktur for å holde oversikt
+      let currentUser = "";
+      let userData = {};
+
+      // Last inn data fra localStorage hvis tilgjengelig
+      function loadData() {
+        const saved = localStorage.getItem("christmasProgress");
+        if (saved) {
+          userData = JSON.parse(saved);
+        }
+      }
+
+      // Lagre data til localStorage
+      function saveData() {
+        localStorage.setItem("christmasProgress", JSON.stringify(userData));
+      }
+      // Sidenavigasjon
+      function showPage(pageId) {
+        document.querySelectorAll(".page").forEach((page) => {
+          page.classList.remove("active");
+        });
+        document.getElementById(pageId).classList.add("active");
+        window.scrollTo(0, 0);
+      }
+
+      // Håndter innlogging
+      function handleLogin(event) {
+        event.preventDefault();
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        // Her kan du legge til ekte autentisering senere
+        if (username && password) {
+          currentUser = username;
+
+          // Opprett bruker hvis de ikke eksisterer
+          if (!userData[username]) {
+            userData[username] = {
+              completedTasks: [],
+            };
+            saveData();
+          }
+
+          // Simuler vellykket innlogging
+          alert("Velkommen, " + username + "! 🎄");
+          showPage("home");
+          updateProgressPage();
+        }
+      }
+
+      // Marker oppgave som fullført
+      function completeTask(taskNumber) {
+        if (!currentUser) {
+          alert("Du må logge inn først!");
+          showPage("login");
+          return;
+        }
+
+        if (!userData[currentUser].completedTasks.includes(taskNumber)) {
+          userData[currentUser].completedTasks.push(taskNumber);
+          saveData();
+          updateProgressPage();
+          alert("🎉 Gratulerer! Oppgave " + taskNumber + " er fullført!");
+
+          // Oppdater knappen visuelt
+          const btn = event.target;
+          btn.classList.add("completed");
+          btn.innerHTML = "✓ Fullført!";
+        } else {
+          alert("Du har allerede fullført denne oppgaven! 🎄");
+        }
+      }
+
+      // Oppdater oversiktssiden
+      function updateProgressPage() {
+        loadData();
+
+        const userList = document.getElementById("userProgressList");
+        const totalUsers = Object.keys(userData).length;
+        const totalTasks = 7;
+        let totalCompleted = 0;
+
+        userList.innerHTML = "";
+
+        // Generer liste over alle brukere og deres fremdrift
+        for (let username in userData) {
+          const user = userData[username];
+          const completed = user.completedTasks.length;
+          const percentage = Math.round((completed / totalTasks) * 100);
+          totalCompleted += completed;
+
+          const userItem = document.createElement("div");
+          userItem.className = "user-item";
+
+          let badges = "";
+          for (let i = 1; i <= totalTasks; i++) {
+            const isCompleted = user.completedTasks.includes(i);
+            badges += `<span class="task-badge ${
+              isCompleted ? "" : "incomplete"
+            }">${isCompleted ? "✓" : "○"} Oppgave ${i}</span>`;
+          }
+
+          userItem.innerHTML = `
+                    <div class="user-name">${username}</div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: ${percentage}%">
+                            ${percentage}%
+                        </div>
+                    </div>
+                    <div class="completed-tasks">
+                        ${badges}
+                    </div>
+                `;
+
+          userList.appendChild(userItem);
+        }
+
+        // Oppdater statistikk
+        document.getElementById("totalUsers").textContent = totalUsers;
+        document.getElementById("totalCompleted").textContent = totalCompleted;
+        const completionRate =
+          totalUsers > 0
+            ? Math.round((totalCompleted / (totalUsers * totalTasks)) * 100)
+            : 0;
+        document.getElementById("completionRate").textContent =
+          completionRate + "%";
+      }
+
+      // Last inn data ved oppstart
+      loadData();
+      updateProgressPage();
+
+      // Snøeffekt
+      function createSnowflake() {
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+        snowflake.innerHTML = "❄";
+        snowflake.style.left = Math.random() * 100 + "%";
+        snowflake.style.animationDuration = Math.random() * 3 + 2 + "s";
+        snowflake.style.opacity = Math.random();
+        snowflake.style.fontSize = Math.random() * 10 + 10 + "px";
+
+        document.body.appendChild(snowflake);
+
+        setTimeout(() => {
+          snowflake.remove();
+        }, 5000);
+      }
+
+      setInterval(createSnowflake, 300);
+    </script>
+  </body>
+</html>

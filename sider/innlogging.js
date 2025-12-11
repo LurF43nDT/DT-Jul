@@ -26,3 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const skjema = document.getElementById("login-skjema");
+  const passordInput = document.getElementById("passord");
+  const feilMelding = document.getElementById("feil-melding");
+
+  if (!skjema || !passordInput || !feilMelding){ return };
+
+  
+})
