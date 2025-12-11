@@ -87,7 +87,7 @@ h1 {
 .hero-content {
   background: rgba(255, 255, 255, 0.95);
   padding: 50px 40px;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   position: relative;
 }
@@ -120,7 +120,7 @@ h1 {
   background: #c41e3a;
   color: white;
   text-decoration: none;
-  border-radius: 50px;
+  border-radius: 5px;
   font-size: 1.1em;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(196, 30, 58, 0.4);
@@ -137,7 +137,7 @@ h1 {
   padding: 15px 40px;
   color: white;
   text-decoration: none;
-  border-radius: 50px;
+  border-radius: 5px;
   font-size: 1.1em;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(30, 196, 33, 0.4);
@@ -165,7 +165,7 @@ h1 {
 
 .task-card {
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 15px;
+  border-radius: 5px;
   padding: 30px;
   text-align: center;
   transition: all 0.3s ease;
@@ -216,7 +216,7 @@ h1 {
 
 .task-content {
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 50px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
@@ -239,7 +239,7 @@ h1 {
 .task-content .task-details {
   background: #f8f9fa;
   padding: 25px;
-  border-radius: 10px;
+  border-radius: 2px;
   margin: 20px 0;
   border-left: 5px solid #165b33;
 }
@@ -259,7 +259,7 @@ h1 {
   color: white;
   text-decoration: none;
   border: none;
-  border-radius: 25px;
+  border-radius: 10px;
   font-size: 1.1em;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -296,7 +296,7 @@ h1 {
   background: #165b33;
   color: white;
   text-decoration: none;
-  border-radius: 25px;
+  border-radius: 10px;
   transition: all 0.3s ease;
   text-align: center;
 }
@@ -315,7 +315,7 @@ h1 {
 
 .progress-card {
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 40px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   margin-bottom: 30px;
@@ -336,7 +336,7 @@ h1 {
 .user-item {
   background: #f8f9fa;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-bottom: 15px;
   border-left: 5px solid #165b33;
 }
@@ -382,7 +382,7 @@ h1 {
   padding: 5px 12px;
   background: #ffd700;
   color: #333;
-  border-radius: 20px;
+  border-radius: 5px;
   font-size: 0.9em;
   font-weight: bold;
 }
@@ -403,7 +403,7 @@ h1 {
   background: linear-gradient(135deg, #c41e3a, #a01729);
   color: white;
   padding: 25px;
-  border-radius: 15px;
+  border-radius: 5px;
   text-align: center;
 }
 
@@ -429,7 +429,7 @@ h1 {
 
 .login-box {
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 50px 40px;
   max-width: 450px;
   width: 100%;
@@ -485,7 +485,7 @@ h1 {
   width: 100%;
   padding: 12px 15px;
   border: 2px solid #e0e0e0;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 1em;
   transition: all 0.3s ease;
   background: white;
@@ -534,7 +534,7 @@ h1 {
   background: linear-gradient(135deg, #c41e3a 0%, #a01729 100%);
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 1.1em;
   font-weight: bold;
   cursor: pointer;
