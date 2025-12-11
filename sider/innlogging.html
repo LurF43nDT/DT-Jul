@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Innlogging</title>
+    <link rel="stylesheet" href="/sider/sider.css" />
+  </head>
+  <body>
+    <header>
+      <button
+        class="home-button"
+        onclick="window.location.href='../index.html'"
+      >
+        Hjem
+      </button>
+      <h1 class="header-title">Innlogging</h1>
+    </header>
+
+    <main class="login-wrapper">
+      <section class="login-card">
+        <h2>Logg inn</h2>
+        <p class="login-text">
+          Skriv inn passordet for å få tilgang til siden.
+        </p>
+
+        <form id="login-skjema">
+          <label for="passord">Passord</label>
+          <input
+            type="password"
+            id="passord"
+            autocomplete="current-password"
+            required
+          />
+          <button type="submit" class="download-button">Logg inn</button>
+          <p id="feil-melding" class="login-error" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="/sider/innlogging.js"></script>
+  </body>
+</html>
