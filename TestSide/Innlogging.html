@@ -5,12 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="test.css" />
     <title>Julekalender 2024</title>
-    <style></style>
+    <style>
+      .app-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 18px;
+        background: linear-gradient(135deg, #0f3d21, #165b33);
+        color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      }
+      .app-title {
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .menu-wrapper {
+        position: relative;
+      }
+      .menu-trigger {
+        background: transparent;
+        border: none;
+        padding: 6px;
+        font-size: 28px;
+        color: #ffd700;
+        cursor: pointer;
+        border: 2px solid #ffd700;
+        border-radius: 10px;
+        transition: transform 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+      }
+      .menu-trigger:hover {
+        transform: translateY(-1px);
+        color: #ffe680;
+        border-color: #ffe680;
+      }
+      .menu-dropdown {
+        position: absolute;
+        right: 0;
+        margin-top: 10px;
+        background: #fff;
+        color: #0f3d21;
+        border-radius: 12px;
+        min-width: 170px;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+        padding: 8px 0;
+        display: none;
+      }
+      .menu-dropdown.open {
+        display: block;
+      }
+      .menu-dropdown a {
+        display: block;
+        padding: 10px 16px;
+        color: inherit;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .menu-dropdown a:hover {
+        background: #f0f6f3;
+      }
+    </style>
   </head>
   <body>
+    <div class="app-header">
+      <div class="app-title" onclick="showPage('home'); hideMenu(); return false;">
+        Julekalender 2024
+      </div>
+      <div class="menu-wrapper">
+        <button
+          class="menu-trigger"
+          aria-label="Åpne meny"
+          aria-expanded="false"
+          aria-controls="headerMenu"
+          onclick="toggleMenu(event)"
+        >
+          🎄
+        </button>
+        <div class="menu-dropdown" id="headerMenu">
+          <a href="#" onclick="showPage('tasks'); hideMenu(); return false;"
+            >View julekalender</a
+          >
+          <a href="#" onclick="showPage('progress'); hideMenu(); return false;"
+            >Se oversikt</a
+          >
+        </div>
+      </div>
+    </div>
     <!-- Logg inn side -->
     <div class="page active" id="login">
-      <a href="#" class="logo" onclick="showPage('login'); return false;">🎄</a>
       <header>
         <h1>Julekalender 2024</h1>
         <p class="subtitle">Logg inn for å starte juleeventyret</p>
@@ -18,55 +103,29 @@
       <div class="login-container">
         <div class="login-box">
           <div class="login-icon"></div>
-          <h2>Velkommen tilbake!</h2>
-          <p class="login-subtitle">
-            Fyll inn dine opplysninger for å fortsette
-          </p>
+          <h2>Velkommen!</h2>
+          <p class="login-subtitle">Skriv inn navnet ditt for å starte</p>
 
           <form onsubmit="handleLogin(event)" class="login-form">
             <div class="form-group">
-              <label for="username">Brukernavn</label>
+              <label for="username">Navn</label>
               <input
                 type="text"
                 id="username"
                 name="username"
-                placeholder="Skriv inn brukernavn"
+                placeholder="Skriv inn navnet ditt"
                 required
               />
             </div>
 
-            <div class="form-group">
-              <label for="password">Passord</label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Skriv inn passord"
-                required
-              />
-            </div>
-
-            <div class="form-options">
-              <label class="checkbox-label">
-                <input type="checkbox" name="remember" />
-                <span>Husk meg</span>
-              </label>
-              <a href="#" class="forgot-link">Glemt passord?</a>
-            </div>
-
-            <button type="submit" class="login-btn">Logg inn</button>
+            <button type="submit" class="login-btn">Bli med</button>
           </form>
-
-          <div class="signup-link">
-            Har du ikke konto? <a href="#">Registrer deg her</a>
-          </div>
         </div>
       </div>
     </div>
 
     <!-- Forside -->
     <div class="page" id="home">
-      <a href="#" class="logo" onclick="showPage('home'); return false;">🎄</a>
       <header>
         <h1>Julekalender 2024</h1>
         <p class="subtitle">Velkommen til årets juleoppgaver</p>
@@ -96,7 +155,6 @@
 
     <!-- Oppgaveoversikt -->
     <div class="page" id="tasks">
-      <a href="#" class="logo" onclick="showPage('home'); return false;">🎄</a>
       <header>
         <h1>Juleoppgaver</h1>
         <p class="subtitle">Velg en oppgave og start moroa!</p>
@@ -187,7 +245,6 @@
 
     <!-- Oppgave 2 -->
     <div class="page" id="task2">
-      <a href="#" class="logo" onclick="showPage('home'); return false;">🎄</a>
       <div class="task-page">
         <div class="task-content">
           <h2>Oppgave 2: Julebaking</h2>
@@ -216,7 +273,6 @@
     </div>
     <!-- Oppgave 3 -->
     <div class="page" id="task3">
-      <a href="#" class="logo" onclick="showPage('home'); return false;">🎄</a>
       <div class="task-page">
         <div class="task-content">
           <h2>Oppgave 3: Julemusikk</h2>
@@ -242,7 +298,6 @@
     </div>
     <!-- Oppgave 4 -->
     <div class="page" id="task4">
-      <a href="#" class="logo" onclick="showPage('home'); return false;">🎄</a>
       <div class="task-page">
         <div class="task-content">
           <h2>Oppgave 4: Julekort</h2>
@@ -268,7 +323,6 @@
     </div>
     <!-- Oppgave 5 -->
     <div class="page" id="task5">
-      <a href="#" class="logo" onclick="showPage('home'); return false;">🎄</a>
       <div class="task-page">
         <div class="task-content">
           <h2>Oppgave 5: Julefilm</h2>
@@ -294,7 +348,6 @@
     </div>
     <!-- Oppgave 6 -->
     <div class="page" id="task6">
-      <a href="#" class="logo" onclick="showPage('home'); return false;">🎄</a>
       <div class="task-page">
         <div class="task-content">
           <h2>Oppgave 6: Julegaver</h2>
@@ -320,7 +373,6 @@
     </div>
     <!-- Oppgave 7 -->
     <div class="page" id="task7">
-      <a href="#" class="logo" onclick="showPage('home'); return false;">🎄</a>
       <div class="task-page">
         <div class="task-content">
           <h2>Oppgave 7: Julefest</h2>
@@ -372,7 +424,6 @@
 
     <!-- Oversikt/Progress side -->
     <div class="page" id="progress">
-      <a href="#" class="logo" onclick="showPage('home'); return false;">🎄</a>
       <header>
         <h1>Oversikt</h1>
         <p class="subtitle">Se hvem som har fullført oppgavene</p>

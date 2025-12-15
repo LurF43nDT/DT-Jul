@@ -22,6 +22,7 @@ function showPage(pageId) {
     page.classList.remove("active");
   });
   document.getElementById(pageId).classList.add("active");
+  hideMenu();
   window.scrollTo(0, 0);
 }
 
@@ -29,27 +30,25 @@ function showPage(pageId) {
 function handleLogin(event) {
   event.preventDefault();
   const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
 
-  // Her kan du legge til ekte autentisering senere
-  if (username && password === "user") {
-    currentUser = username;
-
-    // Opprett bruker hvis de ikke eksisterer
-    if (!userData[username]) {
-      userData[username] = {
-        completedTasks: [],
-      };
-      saveData();
-    }
-
-    // Simuler vellykket innlogging
-    alert("Velkommen, " + username + "! 🎄");
-    showPage("home");
-    updateProgressPage();
-  } else {
-    alert("Feil brukernavn eller passord. Prøv igjen.");
+  if (!username.trim()) {
+    alert("Skriv inn navnet ditt for å komme i gang.");
+    return;
   }
+
+  currentUser = username.trim();
+
+  // Opprett bruker hvis de ikke eksisterer
+  if (!userData[currentUser]) {
+    userData[currentUser] = {
+      completedTasks: [],
+    };
+    saveData();
+  }
+
+  alert("Velkommen, " + currentUser + "! 🎄");
+  showPage("home");
+  updateProgressPage();
 }
 
 // Marker oppgave som fullført
@@ -128,6 +127,32 @@ function updateProgressPage() {
       : 0;
   document.getElementById("completionRate").textContent = completionRate + "%";
 }
+
+// Header-meny
+function toggleMenu(event) {
+  event.preventDefault();
+  const menu = document.getElementById("headerMenu");
+  const trigger = event.currentTarget;
+  const isOpen = menu.classList.toggle("open");
+  trigger.setAttribute("aria-expanded", isOpen);
+}
+
+function hideMenu() {
+  const menu = document.getElementById("headerMenu");
+  const trigger = document.querySelector(".menu-trigger");
+  if (!menu || !trigger) return;
+  menu.classList.remove("open");
+  trigger.setAttribute("aria-expanded", "false");
+}
+
+document.addEventListener("click", (event) => {
+  const menu = document.getElementById("headerMenu");
+  const trigger = document.querySelector(".menu-trigger");
+  if (!menu || !trigger) return;
+  if (!menu.contains(event.target) && !trigger.contains(event.target)) {
+    hideMenu();
+  }
+});
 
 // Last inn data ved oppstart
 loadData();
