@@ -2,6 +2,8 @@
 let currentUser = "";
 let userData = {};
 
+console.log("JavaScript loaded successfully!");
+
 // Last inn data fra localStorage hvis tilgjengelig
 function loadData() {
   const saved = localStorage.getItem("christmasProgress");
@@ -30,7 +32,7 @@ function handleLogin(event) {
   const password = document.getElementById("password").value;
 
   // Her kan du legge til ekte autentisering senere
-  if (username && password) {
+  if (username && password === "user") {
     currentUser = username;
 
     // Opprett bruker hvis de ikke eksisterer
@@ -45,6 +47,8 @@ function handleLogin(event) {
     alert("Velkommen, " + username + "! 🎄");
     showPage("home");
     updateProgressPage();
+  } else {
+    alert("Feil brukernavn eller passord. Prøv igjen.");
   }
 }
 
@@ -131,6 +135,7 @@ updateProgressPage();
 
 // Snøeffekt
 function createSnowflake() {
+  console.log("Creating snowflake...");
   const snowflake = document.createElement("div");
   snowflake.classList.add("snowflake");
   snowflake.innerHTML = "❄";
@@ -140,6 +145,7 @@ function createSnowflake() {
   snowflake.style.fontSize = Math.random() * 10 + 10 + "px";
 
   document.body.appendChild(snowflake);
+  console.log("Snowflake added to body");
 
   setTimeout(() => {
     snowflake.remove();
