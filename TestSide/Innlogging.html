@@ -35,7 +35,8 @@
         cursor: pointer;
         border: 2px solid #ffd700;
         border-radius: 10px;
-        transition: transform 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+        transition: transform 0.15s ease, color 0.15s ease,
+          border-color 0.15s ease;
       }
       .menu-trigger:hover {
         transform: translateY(-1px);
@@ -98,7 +99,6 @@
       </div>
     </div>
 
-    
     <!-- Logg inn side -->
     <div class="page active" id="login">
       <header>
@@ -241,81 +241,70 @@
         </div>
       </div>
     </div>
- 
 
     <!-- Oppgave 1 -->
     <div class="page" id="task1">
       <div class="task-page">
         <div class="task-content">
-          <h2>Oppgave 1: Matematisk Juletraume</h2>
-          <div class="task-description">
-            <p>Kan løses med kode eller på papir</p>
-          </div>
-           <div class="task-details">
-            <p>
-             Oppgave: Multipliser matrise A med kolonnevektoren v <br />
-      for å finne resultatvektoren: "u = A⋅v" <br />
-      <br />
-      # Regn ut alle multiplikasjonene og summer for <br />
-      hver verdi. <br />
-      # Ta verdien av andre variabel i array-A - altså verdien i rad 2 i
-      resultatvektoren.
-      <br />
-      Del denne verdien på 42 for å finne sluttresultatet. <br />
-      <br />
-      Spørsmål: Hva blir sluttresultatet etter <br />
-      at du har delt verdien i andre rad på 42? <br />
-            </p>
-            <p hidden>
-      Hints: #1. Lineær Algebra. #2. dot-product formula. #3.
-      https://www.youtube.com/watch?v=uQhTuRlWMxw&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&index=7
-    </p>
-       <img src="../TasksFiles/Stian/hint1.html" alt="Ex oppgave 1">
-          </div>
-
-
-
-           <h2>Del 2: matematisk Juletraume</h2>
+          <h2>Del 1: matematisk Juletraume</h2>
           <div class="task-description">
             <p>Kan løses med kode</p>
           </div>
-           <div class="task-details">
+          <div class="task-details">
             <p>
-             Oppgave tekst: Lag en loop som går over et ukjent array "uArray", så leter
-      etter en karrakter som delt på 6 = 7.
+              <strong>Oppgave tekst:</strong> Lag en loop som går over et ukjent
+              array "uArray", <br />
+              så leter etter en karrakter som delt på 6 = 7. <br />
+              Svaret Blir da bokstaven som peker til tallet.
             </p>
-            <p>const uArray = [
-        { E: 88.7 },
-        { C: 28 },
-        { B: 77.3 },
-        { G: 99.9 },
-        { D: 190.4 },
-        { L: 26.7 },
-        { K: 144.8 },
-        { I: 72.6 },
-        { O: 134.5 },
-        { F: 45.12 },
-        { P: 77.77 },
-        { H: 160.3 },
-        { J: 33.33 },
-        { A: 42 },
-        { Q: 22.22 },
-        { T: 87.65 },
-        { M: 111.1 },
-        { Z: 73.11 },
-        { U: 123.45 },
-        { X: 5.5 },
-        { S: 39.9 },
-        { W: 199.99 },
-        { V: 10.0 },
-        { Y: 42.42 },
-        { R: 150.0 },
-        { N: 18.2 },
-      ];</p>
-            <p hidden>
-      
-    </p>
+            <br />
+            <p>
+              const uArray = <br />
+              [ { E: 88 }, { C: 28 }, { B: 77 }, <br />
+              { G: 99 }, { D: 190 }, { L: 26 }, <br />
+              { K: 144 }, { I: 72 }, { O: 134 }, <br />
+              { F: 45 }, { P: 77 }, { H: 160 }, <br />
+              { J: 33.33 }, { A: 42 }, { Q: 22.6 }, <br />
+              { T: 87 }, { M: 111.1 }, { Z: 73 }, <br />
+              { U: 123.45 }, { X: 5 }, { S: 39.9 }, <br />
+              { W: 199.99 }, { V: 10.0 }, { Y: 42 }, <br />
+              { R: 150.0 }, { N: 18.2 }, ];
+            </p>
+            <p hidden></p>
           </div>
+
+          <h2>Oppgave 2: Matematisk Juletraume</h2>
+          <div class="task-description">
+            <p>Kan løses med kode eller på papir</p>
+          </div>
+          <div class="task-details">
+            <p>
+              <strong>Oppgave:</strong> Multipliser matrise A med
+              kolonnevektoren v <br />
+              for å finne resultatvektoren: "u = A⋅v" <br />
+              <br />
+              # Regn ut alle multiplikasjonene og summer for hver verdi.<br />
+              <br />
+              # Ta verdien av andre variabel i array-A - altså verdien i rad 2 i
+              resultatvektoren.
+              <br />
+              Del denne verdien på 42 for å finne sluttresultatet. <br />
+              <br />
+              <strong>Spørsmål:</strong> Hva blir sluttresultatet etter <br />
+              at du har delt verdien i andre rad på 42? <br />
+              Svaret skal være et heltall. <br />
+            </p>
+            <br />
+            <p hidden>Hints: #1. Lineær Algebra.</p>
+
+            <script>
+              console.log(
+                "Hint #3: https://www.youtube.com/watch?v=uQhTuRlWMxw"
+              );
+            </script>
+            <img src="./public/himt1.png" alt="#2. dot-product formula." />
+          </div>
+
           <div class="task-actions">
             <button class="complete-btn" onclick="completeTask(1)">
               ✓ Marker som gjort
@@ -331,12 +320,11 @@
       </div>
     </div>
 
-
     <!-- Oppgave 2 -->
     <div class="page" id="task2">
       <div class="task-page">
         <div class="task-content">
-          <h2>Oppgave 2: Vanvittig god jul </h2>
+          <h2>Oppgave 2: Vanvittig god jul</h2>
           <div class="task-description">
             <p>Løs rebusen ved å bruke bildet og hintet under.</p>
           </div>
@@ -347,7 +335,10 @@
             </p>
             <p>
               Se bildet (klikk for full størrelse):
-              <a href="../TasksFiles/Lucifer/food_truck_puzzle.png" target="_blank" rel="noopener"
+              <a
+                href="../TasksFiles/Lucifer/food_truck_puzzle.png"
+                target="_blank"
+                rel="noopener"
                 >food_truck_puzzle.png</a
               >
             </p>
@@ -371,7 +362,6 @@
         </div>
       </div>
     </div>
-    
 
     <!-- Oppgave 3 -->
     <div class="page" id="task3">
@@ -384,8 +374,8 @@
               presangen i spillet «Deep Space Present Hunt».
             </p>
             <p>
-              Kontroller: W/S = frem/bak, A/D = venstre/høyre, Space = opp,
-              Alt = ned, musedrag = se deg rundt, klikk = skann.
+              Kontroller: W/S = frem/bak, A/D = venstre/høyre, Space = opp, Alt
+              = ned, musedrag = se deg rundt, klikk = skann.
             </p>
             <p>
               Klikk på knappen under for å starte spillet i et nytt vindu:
@@ -413,7 +403,6 @@
       </div>
     </div>
 
-
     <!-- Oppgave 4 -->
     <div class="page" id="task4">
       <div class="task-page">
@@ -433,7 +422,7 @@
             ></audio>
             <div style="margin-top: 10px">
               <a
-                class="complete-btn"
+                class="download-btn"
                 href="../TasksFiles/Ken/Oppgave1/Julerebusoppgave.mp3"
                 download
                 >Last ned lydfil</a
@@ -455,7 +444,6 @@
       </div>
     </div>
 
-
     <!-- Oppgave 5 -->
     <div class="page" id="task5">
       <div class="task-page">
@@ -466,11 +454,14 @@
           </div>
           <div class="task-details">
             <h3>Oppgave (KenV2.mp3)</h3>
-            <p>Hint (V2.txt): Her er det flere fellesnevnere, klarer du å finne den rette?</p>
+            <p>
+              Hint (V2.txt): Her er det flere fellesnevnere, klarer du å finne
+              den rette?
+            </p>
             <audio controls src="../TasksFiles/Ken2/oppgave2/KenV2.mp3"></audio>
             <div style="margin-top: 10px">
               <a
-                class="complete-btn"
+                class="download-btn"
                 href="../TasksFiles/Ken2/oppgave2/KenV2.mp3"
                 download
                 >Last ned lydfil</a
@@ -498,23 +489,18 @@
         <div class="task-content">
           <h2>Oppgave 6: I Spy With My Eye</h2>
           <div class="task-description">
-            <p>I spy with my little eye…
-              A place full of stories, gifts, and games,
-              Triangles repeat, but not all mean the same.
-              Colors peek out where they don’t belong,
-              Some hide in plain sight, some feel wrong.
-              
-              Count not the books,
-              Ignore the lights,
-              Stockings and shapes will waste your sight.
-              Look instead for guests who shouldn’t be here at all—
-              Rounded, bright, and silent, watching from shelves and sprawl.
-              
-              When the right kind of figures are finally seen,
-              Not decorations, toys, or things in between,
-              Their total reveals what you need to say:
-              The answer is a letter… and a number’s way.
-              Bruk bildet under eller åpne filen direkte.</p>
+            <p>
+              I spy with my little eye… A place full of stories, gifts, and
+              games, Triangles repeat, but not all mean the same. Colors peek
+              out where they don’t belong, Some hide in plain sight, some feel
+              wrong. Count not the books, Ignore the lights, Stockings and
+              shapes will waste your sight. Look instead for guests who
+              shouldn’t be here at all— Rounded, bright, and silent, watching
+              from shelves and sprawl. When the right kind of figures are
+              finally seen, Not decorations, toys, or things in between, Their
+              total reveals what you need to say: The answer is a letter… and a
+              number’s way. Bruk bildet under eller åpne filen direkte.
+            </p>
           </div>
           <div class="task-details">
             <img
@@ -535,50 +521,61 @@
               >← Tilbake til oppgaver</a
             >
             <!-- Fullscreen visning av Andrea-bildet -->
-           <div class="image-modal" id="imageModal">
-           <div class="image-modal__content">
-           <button class="image-modal__close" id="imageModalClose" aria-label="Lukk">&times;</button>
-           <img
-            id="andreaFullImg"
-            class="image-modal__img"
-            src="../TasksFiles/Andrea/I_Spy_With_My_Eye.png"
-            alt="Andrea I Spy oppgave fullskjerm"/>
-           <div class="image-modal__hint">Scroll for zoom, dra for å flytte, dobbeltklikk for å nullstille</div>
+            <div class="image-modal" id="imageModal">
+              <div class="image-modal__content">
+                <button
+                  class="image-modal__close"
+                  id="imageModalClose"
+                  aria-label="Lukk"
+                >
+                  &times;
+                </button>
+                <img
+                  id="andreaFullImg"
+                  class="image-modal__img"
+                  src="../TasksFiles/Andrea/I_Spy_With_My_Eye.png"
+                  alt="Andrea I Spy oppgave fullskjerm"
+                />
+                <div class="image-modal__hint">
+                  Scroll for zoom, dra for å flytte, dobbeltklikk for å
+                  nullstille
+                </div>
+              </div>
             </div>
-           </div>
           </div>
         </div>
       </div>
     </div>
 
-
     <!-- Oppgave 7 -->
     <div class="page" id="task7">
       <div class="task-page">
         <div class="task-content">
-          <h2>Oppgave 7: Håkon</h2>
+          <h2>Oppgave 7: Bestemors Kjøkken</h2>
           <div class="task-description">
             <p>
               For å løse den fullt ut trenger du Blender installert og litt
               grunnleggende Blender-kunnskap for å åpne og utforske scenen i
               blend-filen.
             </p>
-            <p>
-              Last ned blend-filen her:
-              <a
-                class="complete-btn"
-                href="../TasksFiles/Håkon/Bestemors%20Kjøkken.blend"
-                download
-                >Last ned Bestemors Kjøkken.blend</a
-              >
-            </p>
+           
             <p>Les teksten under eller åpne filen Bestemor.txt.</p>
           </div>
           <div class="task-details">
             <p>
               Bestemor er på besøk etter å ha kommet hjem fra russland. Hun
-              sukker tungt når hun ser kaoset hun er kommet hjem til.
+              sukker tungt når hun ser kaoset hun er kommet hjem til.  <p>
+                Last ned blend-filen her:
+                <a
+                  class="download-btn"
+                  href="../TasksFiles/Håkon/Bestemors%20Kjøkken.blend"
+                  download
+                  >Last ned Bestemors Kjøkken.blend</a
+                >
+              </p>
             </p>
+            <br />
+            <img src="./public/Håkon.webp" alt="Bildet" width="450" />
           </div>
           <div class="task-actions">
             <button class="complete-btn" onclick="completeTask(7)">
@@ -607,7 +604,11 @@
             <p>
               Hint: Every hue down in hueville liked Christmas a lot. But the
               Grinch who lived just North of hueville did not!
+              <button class="download-btn" onclick="downloadFile('')">
+                Last ned tekstfil
+              </button>
             </p>
+
             <p>
               Se bildet (klikk for full størrelse):
               <a
@@ -627,9 +628,7 @@
             <button class="complete-btn" onclick="completeTask(8)">
               ✓ Marker som gjort
             </button>
-            <button class="download-btn" onclick="downloadFile('')">
-              Last ned tekstfil
-            </button>
+
             <a
               href="#"
               class="back-btn"
@@ -640,7 +639,6 @@
         </div>
       </div>
     </div>
-
 
     <!-- Oppgave 9 -->
     <div class="page" id="task9">
