@@ -71,8 +71,11 @@
   </head>
   <body>
     <div class="app-header">
-      <div class="app-title" onclick="showPage('home'); hideMenu(); return false;">
-        Julerebus 2024
+      <div
+        class="app-title"
+        onclick="showPage('home'); hideMenu(); return false;"
+      >
+        Julekalender 2024
       </div>
       <div class="menu-wrapper">
         <button
@@ -408,11 +411,33 @@
           <div class="task-description">
             <p>Første lydoppgave ligger i mappen <strong>TasksFiles/Ken</strong>.</p>
             <p>Spill av lyden og bruk teksten i V1.txt som hint.</p>
+            <p>
+              To lydoppgaver ligger i mappen <strong>TasksFiles/Ken</strong>.
+            </p>
+            <p>
+              Spill av lydene og løs oppgavene. Bruk teksten i V1.txt og V2.txt
+              som hint.
+            </p>
           </div>
           <div class="task-details">
             <h3>Oppgave (Julerebusoppgave.mp3)</h3>
             <p>Hint (V1.txt): Om du ikke ser lyder, jobber du ikke hardt nok.</p>
             <audio controls src="../TasksFiles/Ken/Oppgave1/Julerebusoppgave.mp3"></audio>
+            <h3>Oppgave 1 (Julerebusoppgave.mp3)</h3>
+            <p>
+              Hint (V1.txt): Om du ikke ser lyder, jobber du ikke hardt nok.
+            </p>
+            <audio
+              controls
+              src="../TasksFiles/Ken/Oppgave1/Julerebusoppgave.mp3"
+            ></audio>
+
+            <h3 style="margin-top: 20px">Oppgave 2 (KenV2.mp3)</h3>
+            <p>
+              Hint (V2.txt): Her er det flere fellesnevnere, klarer du å finne
+              den rette?
+            </p>
+            <audio controls src="../TasksFiles/Ken/oppgave2/KenV2.mp3"></audio>
           </div>
           <div class="task-actions">
             <button class="complete-btn" onclick="completeTask(4)">
@@ -583,6 +608,9 @@
             <button class="complete-btn" onclick="completeTask(8)">
               ✓ Marker som gjort
             </button>
+            <button class="download-btn" onclick="downloadFile('')">
+              Last ned tekstfil
+            </button>
             <a
               href="#"
               class="back-btn"
@@ -594,7 +622,6 @@
       </div>
     </div>
 
-    
     <!-- Oversikt/Progress side -->
     <div class="page" id="progress">
       <header>
