@@ -296,13 +296,13 @@
             </p>
             <br />
             <p hidden>Hints: #1. Lineær Algebra.</p>
-            <!--#2. dot-product formula.-->
+
             <script>
               console.log(
                 "Hint #3: https://www.youtube.com/watch?v=uQhTuRlWMxw"
               );
             </script>
-            <img src="./public/himt1.png" alt="Ex oppgave 1" />
+            <img src="./public/himt1.png" alt="#2. dot-product formula." />
           </div>
 
           <div class="task-actions">
@@ -422,7 +422,7 @@
             ></audio>
             <div style="margin-top: 10px">
               <a
-                class="complete-btn"
+                class="download-btn"
                 href="../TasksFiles/Ken/Oppgave1/Julerebusoppgave.mp3"
                 download
                 >Last ned lydfil</a
@@ -461,7 +461,7 @@
             <audio controls src="../TasksFiles/Ken2/oppgave2/KenV2.mp3"></audio>
             <div style="margin-top: 10px">
               <a
-                class="complete-btn"
+                class="download-btn"
                 href="../TasksFiles/Ken2/oppgave2/KenV2.mp3"
                 download
                 >Last ned lydfil</a
@@ -551,29 +551,31 @@
     <div class="page" id="task7">
       <div class="task-page">
         <div class="task-content">
-          <h2>Oppgave 7: Håkon</h2>
+          <h2>Oppgave 7: Bestemors Kjøkken</h2>
           <div class="task-description">
             <p>
               For å løse den fullt ut trenger du Blender installert og litt
               grunnleggende Blender-kunnskap for å åpne og utforske scenen i
               blend-filen.
             </p>
-            <p>
-              Last ned blend-filen her:
-              <a
-                class="complete-btn"
-                href="../TasksFiles/Håkon/Bestemors%20Kjøkken.blend"
-                download
-                >Last ned Bestemors Kjøkken.blend</a
-              >
-            </p>
+           
             <p>Les teksten under eller åpne filen Bestemor.txt.</p>
           </div>
           <div class="task-details">
             <p>
               Bestemor er på besøk etter å ha kommet hjem fra russland. Hun
-              sukker tungt når hun ser kaoset hun er kommet hjem til.
+              sukker tungt når hun ser kaoset hun er kommet hjem til.  <p>
+                Last ned blend-filen her:
+                <a
+                  class="download-btn"
+                  href="../TasksFiles/Håkon/Bestemors%20Kjøkken.blend"
+                  download
+                  >Last ned Bestemors Kjøkken.blend</a
+                >
+              </p>
             </p>
+            <br />
+            <img src="./public/Håkon.webp" alt="Bildet" width="450" />
           </div>
           <div class="task-actions">
             <button class="complete-btn" onclick="completeTask(7)">
@@ -602,7 +604,11 @@
             <p>
               Hint: Every hue down in hueville liked Christmas a lot. But the
               Grinch who lived just North of hueville did not!
+              <button class="download-btn" onclick="downloadFile('')">
+                Last ned tekstfil
+              </button>
             </p>
+
             <p>
               Se bildet (klikk for full størrelse):
               <a
@@ -622,9 +628,7 @@
             <button class="complete-btn" onclick="completeTask(8)">
               ✓ Marker som gjort
             </button>
-            <button class="download-btn" onclick="downloadFile('')">
-              Last ned tekstfil
-            </button>
+
             <a
               href="#"
               class="back-btn"
