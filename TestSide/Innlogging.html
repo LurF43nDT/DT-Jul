@@ -218,6 +218,11 @@
             <h3>Håkon</h3>
             <p>Tekstoppgave fra Håkon</p>
           </div>
+          <div class="task-card" onclick="showPage('task8')">
+            <div class="task-number">8</div>
+            <h3>Frode</h3>
+            <p>Grinch-oppgave fra Frode</p>
+          </div>
         </div>
       </div>
     </div>
@@ -316,10 +321,27 @@
     <div class="page" id="task2">
       <div class="task-page">
         <div class="task-content">
-          <h2>Oppgave 2: Lucifer</h2>
+          <h2>Oppgave 2: Vanvittig god jul </h2>
           <div class="task-description">
             <p>Oppgaven ligger i mappen <strong>TasksFiles/Lucifer</strong>.</p>
-            <p>Åpne filene der for instruksjoner eller oppgavetekst.</p>
+            <p>Løs rebusen ved å bruke bildet og hintet under.</p>
+          </div>
+          <div class="task-details">
+            <p>
+              Hint: Julemarkedet åpner og churros-bilen er på plass. Når mørket
+              senker seg blir alt klart som glass.
+            </p>
+            <p>
+              Se bildet (klikk for full størrelse):
+              <a href="../TasksFiles/Lucifer/food_truck_puzzle.png" target="_blank" rel="noopener"
+                >food_truck_puzzle.png</a
+              >
+            </p>
+            <img
+              src="../TasksFiles/Lucifer/food_truck_puzzle.png"
+              alt="Food truck puzzle"
+              style="max-width: 100%; border-radius: 10px; margin-top: 12px"
+            />
           </div>
           <div class="task-actions">
             <button class="complete-btn" onclick="completeTask(2)">
@@ -341,7 +363,7 @@
     <div class="page" id="task3">
       <div class="task-page">
         <div class="task-content">
-          <h2>Oppgave 3: Simon</h2>
+          <h2>Oppgave 3: Present Hunt</h2>
           <div class="task-description">
             <p>
               Naviger romgruven, skann kullblokkene og finn den bortkomne
@@ -441,10 +463,26 @@
     <div class="page" id="task6">
       <div class="task-page">
         <div class="task-content">
-          <h2>Oppgave 6: Andrea</h2>
+          <h2>Oppgave 6: I Spy With My Eye</h2>
           <div class="task-description">
             <p>Se bildeoppgaven i <strong>TasksFiles/Andrea</strong>.</p>
-            <p>Bruk bildet under eller åpne filen direkte.</p>
+            <p>I spy with my little eye…
+              A place full of stories, gifts, and games,
+              Triangles repeat, but not all mean the same.
+              Colors peek out where they don’t belong,
+              Some hide in plain sight, some feel wrong.
+              
+              Count not the books,
+              Ignore the lights,
+              Stockings and shapes will waste your sight.
+              Look instead for guests who shouldn’t be here at all—
+              Rounded, bright, and silent, watching from shelves and sprawl.
+              
+              When the right kind of figures are finally seen,
+              Not decorations, toys, or things in between,
+              Their total reveals what you need to say:
+              The answer is a letter… and a number’s way.
+              Bruk bildet under eller åpne filen direkte.</p>
           </div>
           <div class="task-details">
             <img
@@ -499,6 +537,50 @@
           </div>
           <div class="task-actions">
             <button class="complete-btn" onclick="completeTask(7)">
+              ✓ Marker som gjort
+            </button>
+            <a
+              href="#"
+              class="back-btn"
+              onclick="showPage('tasks'); return false;"
+              >← Tilbake til oppgaver</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Oppgave 8 -->
+    <div class="page" id="task8">
+      <div class="task-page">
+        <div class="task-content">
+          <h2>Oppgave 8: Frode</h2>
+          <div class="task-description">
+            <p>Oppgaven ligger i mappen <strong>TasksFiles/Frode</strong>.</p>
+            <p>Les teksten og se bildet for å løse Grinch-rebusen.</p>
+          </div>
+          <div class="task-details">
+            <p>
+              Hint: Every hue down in hueville liked Christmas a lot. But the
+              Grinch who lived just North of hueville did not!
+            </p>
+            <p>
+              Se bildet (klikk for full størrelse):
+              <a
+                href="../TasksFiles/Frode/grinchen3.png"
+                target="_blank"
+                rel="noopener"
+                >grinchen3.png</a
+              >
+            </p>
+            <img
+              src="../TasksFiles/Frode/grinchen3.png"
+              alt="Grinch puzzle"
+              style="max-width: 100%; border-radius: 10px; margin-top: 12px"
+            />
+          </div>
+          <div class="task-actions">
+            <button class="complete-btn" onclick="completeTask(8)">
               ✓ Marker som gjort
             </button>
             <a

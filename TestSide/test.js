@@ -11,6 +11,7 @@ const TASKS = [
   { id: 5, name: "Ken 2" },
   { id: 6, name: "Andrea" },
   { id: 7, name: "Håkon" },
+  { id: 8, name: "Frode" },
 ];
 
 console.log("JavaScript loaded successfully!");
