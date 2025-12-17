@@ -94,6 +94,8 @@
         </div>
       </div>
     </div>
+
+    
     <!-- Logg inn side -->
     <div class="page active" id="login">
       <header>
@@ -191,10 +193,13 @@
             <h3>Lucifer</h3>
             <p>Oppgave fra mappen Lucifer</p>
           </div>
-          <div class="task-card" onclick="showPage('task3')">
+          <div
+            class="task-card"
+            onclick="window.open('https://deepspacepresenthunt.netlify.app/', '_blank')"
+          >
             <div class="task-number">3</div>
             <h3>Simon</h3>
-            <p>Oppgave fra mappen Simon</p>
+            <p>Åpner ekstern rebus</p>
           </div>
           <div class="task-card" onclick="showPage('task4')">
             <div class="task-number">4</div>
@@ -336,8 +341,24 @@
         <div class="task-content">
           <h2>Oppgave 3: Simon</h2>
           <div class="task-description">
-            <p>Oppgaven ligger i mappen <strong>TasksFiles/Simon</strong>.</p>
-            <p>Åpne filene der for instruksjoner eller oppgavetekst.</p>
+            <p>
+              Naviger romgruven, skann kullblokkene og finn den bortkomne
+              presangen i spillet «Deep Space Present Hunt».
+            </p>
+            <p>
+              Kontroller: W/S = frem/bak, A/D = venstre/høyre, Space = opp,
+              Alt = ned, musedrag = se deg rundt, klikk = skann.
+            </p>
+            <p>
+              Klikk på knappen under for å starte spillet i et nytt vindu:
+              <a
+                class="btn"
+                href="https://deepspacepresenthunt.netlify.app/"
+                target="_blank"
+                rel="noopener"
+                >Åpne Oppgave 3</a
+              >
+            </p>
           </div>
           <div class="task-actions">
             <button class="complete-btn" onclick="completeTask(3)">
