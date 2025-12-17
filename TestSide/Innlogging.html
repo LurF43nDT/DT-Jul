@@ -204,7 +204,7 @@
         <div class="tasks-grid">
           <div class="task-card" onclick="showPage('task1')">
             <div class="task-number">1</div>
-            <h3>Stian</h3>
+            <h3>Matematisk Juletraume</h3>
           </div>
           <div class="task-card" onclick="showPage('task2')">
             <div class="task-number">2</div>
@@ -216,23 +216,27 @@
           </div>
           <div class="task-card" onclick="showPage('task4')">
             <div class="task-number">4</div>
-            <h3>Ken: Lydbølger</h3>
+            <h3>Lydbølger</h3>
           </div>
           <div class="task-card" onclick="showPage('task5')">
             <div class="task-number">5</div>
-            <h3>Ken 2: Fellesnevner</h3>
+            <h3>Fellesnevner</h3>
           </div>
           <div class="task-card" onclick="showPage('task6')">
             <div class="task-number">6</div>
-            <h3>Andrea</h3>
+            <h3>My eye spy</h3>
           </div>
           <div class="task-card" onclick="showPage('task7')">
             <div class="task-number">7</div>
-            <h3>Håkon</h3>
+            <h3>Bæstemors Kjøkken</h3>
           </div>
           <div class="task-card" onclick="showPage('task8')">
             <div class="task-number">8</div>
-            <h3>Frode</h3>
+            <h3>Grinch-rebus</h3>
+          </div>
+          <div class="task-card" onclick="showPage('task9')">
+            <div class="task-number">9</div>
+            <h3>Web Puzzle</h3>
           </div>
         </div>
       </div>
@@ -243,7 +247,7 @@
     <div class="page" id="task1">
       <div class="task-page">
         <div class="task-content">
-          <h2>Oppgave 1: Stian</h2>
+          <h2>Oppgave 1: Matematisk Juletraume</h2>
           <div class="task-description">
             <p>Kan løses med kode eller på papir</p>
           </div>
@@ -271,7 +275,7 @@
 
 
 
-           <h2>Oppgave 2: Stian</h2>
+           <h2>Del 2: matematisk Juletraume</h2>
           <div class="task-description">
             <p>Kan løses med kode</p>
           </div>
@@ -414,7 +418,7 @@
     <div class="page" id="task4">
       <div class="task-page">
         <div class="task-content">
-          <h2>Oppgave 4: Ken – Lydbølger</h2>
+          <h2>Oppgave 4:Lydbølger</h2>
           <div class="task-description">
             <p>Spill av lyden og bruk teksten i V1.txt som hint.</p>
           </div>
@@ -456,7 +460,7 @@
     <div class="page" id="task5">
       <div class="task-page">
         <div class="task-content">
-          <h2>Oppgave 5: Ken 2 – Fellesnevner</h2>
+          <h2>Oppgave 5:Fellesnevner</h2>
           <div class="task-description">
             <p>Spill av lyden og bruk teksten i V2.txt som hint.</p>
           </div>
@@ -595,7 +599,7 @@
     <div class="page" id="task8">
       <div class="task-page">
         <div class="task-content">
-          <h2>Oppgave 8: Frode</h2>
+          <h2>Oppgave 8: Grinch-rebus</h2>
           <div class="task-description">
             <p>Les teksten og se bildet for å løse Grinch-rebusen.</p>
           </div>
@@ -637,6 +641,41 @@
       </div>
     </div>
 
+
+    <!-- Oppgave 9 -->
+    <div class="page" id="task9">
+      <div class="task-page">
+        <div class="task-content">
+          <h2>Oppgave 9: Web Puzzle</h2>
+          <div class="task-description">
+            <p>
+              Click the button below to start the web puzzle in a new window.
+            </p>
+            <p>
+              Klikk på knappen under for å starte spillet i et nytt vindu:
+              <a
+                class="btn"
+                href="https://radiant-sable-c8ccef.netlify.app/"
+                target="_blank"
+                rel="noopener"
+                >Åpne Oppgave 9</a
+              >
+            </p>
+          </div>
+          <div class="task-actions">
+            <button class="complete-btn" onclick="completeTask(9)">
+              ✓ Marker som gjort
+            </button>
+            <a
+              href="#"
+              class="back-btn"
+              onclick="showPage('tasks'); return false;"
+              >← Tilbake til oppgaver</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Oversikt/Progress side -->
     <div class="page" id="progress">
       <header>
