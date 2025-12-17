@@ -728,6 +728,8 @@
           <form onsubmit="submitFinalPassword(event)" class="login-form">
             <div class="form-group">
               <label for="finalPasswordInput">Passord</label>
+              <img src="../Hint grid.png" id="hintGridIcon" alt="Show Hint Grid" title="Click to view the Hint Grid" style="width: 24px; height: 24px; vertical-align: middle; margin-left: 8px; cursor: pointer;">
+              <span style="margin-left: 5px; vertical-align: middle; color: #333; font-size: 0.95em;">Hint Grid</span>
               <input
                 type="text"
                 id="finalPasswordInput"
@@ -742,6 +744,16 @@
       </div>
     </div>
 
+  
+    <div class="simple-modal" id="simpleImageModal">
+      <div class="simple-modal__content">
+        <button class="simple-modal__close" id="simpleModalClose" aria-label="Lukk">&times;</button>
+        <img id="simpleModalImg" class="simple-modal__img" src="" alt="Hint Grid"/>
+      </div>
+    </div>
+
+    <script src="ui.js"></script>
+    <script src="modals.js"></script>
     <script src="test.js"></script>
     <script src="leaderboard.js"></script>
   </body>
