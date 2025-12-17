@@ -8,8 +8,9 @@ const TASKS = [
   { id: 2, name: "Lucifer" },
   { id: 3, name: "Simon" },
   { id: 4, name: "Ken" },
-  { id: 5, name: "Andrea" },
-  { id: 6, name: "Håkon" },
+  { id: 5, name: "Ken 2" },
+  { id: 6, name: "Andrea" },
+  { id: 7, name: "Håkon" },
 ];
 
 console.log("JavaScript loaded successfully!");
