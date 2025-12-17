@@ -190,6 +190,7 @@ document.addEventListener("click", (event) => {
 // Last inn data ved oppstart
 loadData();
 updateProgressPage();
+setupHintGridModal();
 setupAndreaImageModal();
 
 // Snøeffekt
@@ -312,5 +313,29 @@ function submitFinalPassword(event) {
   }
   saveFinalPassword(value);
   alert("Passord lagret! Du kan lukke eller oppdatere siden uten å miste det.");
+}
+
+// Enkel bilde-modal for Hint Grid
+function setupHintGridModal() {
+  const icon = document.getElementById("hintGridIcon");
+  const modal = document.getElementById("simpleImageModal");
+  const modalImg = document.getElementById("simpleModalImg");
+  const closeBtn = document.getElementById("simpleModalClose");
+  if (!icon || !modal || !modalImg || !closeBtn) return;
+
+  function openModal() {
+    modalImg.src = icon.src; // Sett bildekilden til modalen
+    modal.classList.add("open");
+  }
+
+  function closeModal() {
+    modal.classList.remove("open");
+  }
+
+  icon.addEventListener("click", openModal);
+  closeBtn.addEventListener("click", closeModal);
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
 }
 
