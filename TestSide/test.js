@@ -6,10 +6,10 @@ let userData = {};
 const TASKS = [
   { id: 1, name: "Stian" },
   { id: 2, name: "Lucifer" },
-  { id: 3, name: "Simon" },
+  { id: 3, name: "Present Hunt" },
   { id: 4, name: "Ken: Lydbølger" },
   { id: 5, name: "Ken 2: Fellesnevner" },
-  { id: 6, name: "Andrea" },
+  { id: 6, name: "I Spy With My Eye" },
   { id: 7, name: "Håkon" },
   { id: 8, name: "Frode" },
 ];
@@ -27,6 +27,15 @@ function loadData() {
 // Lagre data til localStorage
 function saveData() {
   localStorage.setItem("christmasProgress", JSON.stringify(userData));
+}
+
+// Lagre og hent slutt-passord lokalt
+function saveFinalPassword(value) {
+  localStorage.setItem("finalPassword", value);
+}
+
+function loadFinalPassword() {
+  return localStorage.getItem("finalPassword") || "";
 }
 // Sidenavigasjon
 function showPage(pageId) {
@@ -143,6 +152,12 @@ function updateProgressPage() {
   // Oppdater topp-listen dersom leaderboard.js er lastet
   if (typeof updateLeaderboard === "function") {
     updateLeaderboard(userData);
+  }
+
+  // Fyll inn lagret passord hvis det finnes
+  const finalPasswordInput = document.getElementById("finalPasswordInput");
+  if (finalPasswordInput) {
+    finalPasswordInput.value = loadFinalPassword();
   }
 }
 
@@ -283,5 +298,19 @@ function setupAndreaImageModal() {
   fullImg.addEventListener("dblclick", () => {
     resetTransform();
   });
+}
+
+// Håndter innsending av slutt-passord
+function submitFinalPassword(event) {
+  event.preventDefault();
+  const input = document.getElementById("finalPasswordInput");
+  if (!input) return;
+  const value = input.value.trim();
+  if (!value) {
+    alert("Skriv inn passordet før du sender inn.");
+    return;
+  }
+  saveFinalPassword(value);
+  alert("Passord lagret! Du kan lukke eller oppdatere siden uten å miste det.");
 }
 

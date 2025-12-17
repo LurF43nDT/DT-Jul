@@ -639,6 +639,27 @@
             <!-- Brukerfremdrift vises her dynamisk -->
           </div>
         </div>
+
+        <div class="progress-card">
+          <h2>Sluttpassord</h2>
+          <p>
+            Når alle oppgaver er løst, skriv inn passordet du har funnet og
+            lagre det her. Feltet huskes i nettleseren.
+          </p>
+          <form onsubmit="submitFinalPassword(event)" class="login-form">
+            <div class="form-group">
+              <label for="finalPasswordInput">Passord</label>
+              <input
+                type="text"
+                id="finalPasswordInput"
+                name="finalPasswordInput"
+                placeholder="Skriv inn passordet"
+                required
+              />
+            </div>
+            <button type="submit" class="login-btn">Lagre passord</button>
+          </form>
+        </div>
       </div>
     </div>
 
