@@ -2,6 +2,16 @@
 let currentUser = "";
 let userData = {};
 
+// Liste over tilgjengelige oppgaver (speiler mappene i TasksFiles/)
+const TASKS = [
+  { id: 1, name: "Stian" },
+  { id: 2, name: "Lucifer" },
+  { id: 3, name: "Simon" },
+  { id: 4, name: "Ken" },
+  { id: 5, name: "Andrea" },
+  { id: 6, name: "Håkon" },
+];
+
 console.log("JavaScript loaded successfully!");
 
 // Last inn data fra localStorage hvis tilgjengelig
@@ -80,7 +90,7 @@ function updateProgressPage() {
 
   const userList = document.getElementById("userProgressList");
   const totalUsers = Object.keys(userData).length;
-  const totalTasks = 7;
+  const totalTasks = TASKS.length;
   let totalCompleted = 0;
 
   userList.innerHTML = "";
@@ -89,19 +99,20 @@ function updateProgressPage() {
   for (let username in userData) {
     const user = userData[username];
     const completed = user.completedTasks.length;
-    const percentage = Math.round((completed / totalTasks) * 100);
+    const percentage =
+      totalTasks > 0 ? Math.round((completed / totalTasks) * 100) : 0;
     totalCompleted += completed;
 
     const userItem = document.createElement("div");
     userItem.className = "user-item";
 
     let badges = "";
-    for (let i = 1; i <= totalTasks; i++) {
-      const isCompleted = user.completedTasks.includes(i);
+    TASKS.forEach((task) => {
+      const isCompleted = user.completedTasks.includes(task.id);
       badges += `<span class="task-badge ${isCompleted ? "" : "incomplete"}">${
         isCompleted ? "✓" : "○"
-      } Oppgave ${i}</span>`;
-    }
+      } ${task.name}</span>`;
+    });
 
     userItem.innerHTML = `
                   <div class="user-name">${username}</div>
@@ -126,6 +137,11 @@ function updateProgressPage() {
       ? Math.round((totalCompleted / (totalUsers * totalTasks)) * 100)
       : 0;
   document.getElementById("completionRate").textContent = completionRate + "%";
+
+  // Oppdater topp-listen dersom leaderboard.js er lastet
+  if (typeof updateLeaderboard === "function") {
+    updateLeaderboard(userData);
+  }
 }
 
 // Header-meny
@@ -157,6 +173,7 @@ document.addEventListener("click", (event) => {
 // Last inn data ved oppstart
 loadData();
 updateProgressPage();
+setupAndreaImageModal();
 
 // Snøeffekt
 function createSnowflake() {
@@ -178,3 +195,79 @@ function createSnowflake() {
 }
 
 setInterval(createSnowflake, 300);
+
+// Fullskjerm og zoom for Andrea-bildet
+function setupAndreaImageModal() {
+  const preview = document.getElementById("andreaPreview");
+  const modal = document.getElementById("imageModal");
+  const fullImg = document.getElementById("andreaFullImg");
+  const closeBtn = document.getElementById("imageModalClose");
+  if (!preview || !modal || !fullImg || !closeBtn) return;
+
+  let scale = 1;
+  let translate = { x: 0, y: 0 };
+  let dragging = false;
+  let dragStart = { x: 0, y: 0 };
+
+  function applyTransform() {
+    fullImg.style.transform = `translate(${translate.x}px, ${translate.y}px) scale(${scale})`;
+  }
+
+  function resetTransform() {
+    scale = 1;
+    translate = { x: 0, y: 0 };
+    applyTransform();
+  }
+
+  function openModal() {
+    resetTransform();
+    modal.classList.add("open");
+  }
+
+  function closeModal() {
+    modal.classList.remove("open");
+  }
+
+  preview.addEventListener("click", openModal);
+  closeBtn.addEventListener("click", closeModal);
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+
+  fullImg.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    const delta = e.deltaY < 0 ? 0.1 : -0.1;
+    scale = Math.min(Math.max(1, scale + delta), 4);
+    applyTransform();
+  });
+
+  fullImg.addEventListener("pointerdown", (e) => {
+    dragging = true;
+    dragStart = {
+      x: e.clientX - translate.x,
+      y: e.clientY - translate.y,
+    };
+    fullImg.setPointerCapture(e.pointerId);
+  });
+
+  fullImg.addEventListener("pointermove", (e) => {
+    if (!dragging) return;
+    translate = {
+      x: e.clientX - dragStart.x,
+      y: e.clientY - dragStart.y,
+    };
+    applyTransform();
+  });
+
+  fullImg.addEventListener("pointerup", (e) => {
+    dragging = false;
+    fullImg.releasePointerCapture(e.pointerId);
+  });
+
+  fullImg.addEventListener("dblclick", () => {
+    resetTransform();
+  });
+}
