@@ -205,42 +205,34 @@
           <div class="task-card" onclick="showPage('task1')">
             <div class="task-number">1</div>
             <h3>Stian</h3>
-            <p>Oppgave fra mappen Stian</p>
           </div>
           <div class="task-card" onclick="showPage('task2')">
             <div class="task-number">2</div>
             <h3>Vanvettig god jul</h3>
-            <p>Oppgave fra mappen Lucifer</p>
           </div>
           <div class="task-card" onclick="showPage('task3')">
             <div class="task-number">3</div>
             <h3>Present Hunt</h3>
-            <p>Oppgave fra mappen Simon</p>
           </div>
           <div class="task-card" onclick="showPage('task4')">
             <div class="task-number">4</div>
             <h3>Ken: Lydbølger</h3>
-            <p>Lydoppgave 1 fra Ken</p>
           </div>
           <div class="task-card" onclick="showPage('task5')">
             <div class="task-number">5</div>
             <h3>Ken 2: Fellesnevner</h3>
-            <p>Lydoppgave 2 fra Ken</p>
           </div>
           <div class="task-card" onclick="showPage('task6')">
             <div class="task-number">6</div>
             <h3>Andrea</h3>
-            <p>Bildeoppgave fra Andrea</p>
           </div>
           <div class="task-card" onclick="showPage('task7')">
             <div class="task-number">7</div>
             <h3>Håkon</h3>
-            <p>Tekstoppgave fra Håkon</p>
           </div>
           <div class="task-card" onclick="showPage('task8')">
             <div class="task-number">8</div>
             <h3>Frode</h3>
-            <p>Grinch-oppgave fra Frode</p>
           </div>
         </div>
       </div>
@@ -342,7 +334,6 @@
         <div class="task-content">
           <h2>Oppgave 2: Vanvittig god jul </h2>
           <div class="task-description">
-            <p>Oppgaven ligger i mappen <strong>TasksFiles/Lucifer</strong>.</p>
             <p>Løs rebusen ved å bruke bildet og hintet under.</p>
           </div>
           <div class="task-details">
@@ -425,21 +416,10 @@
         <div class="task-content">
           <h2>Oppgave 4: Ken – Lydbølger</h2>
           <div class="task-description">
-            <p>Første lydoppgave ligger i mappen <strong>TasksFiles/Ken</strong>.</p>
             <p>Spill av lyden og bruk teksten i V1.txt som hint.</p>
-            <p>
-              To lydoppgaver ligger i mappen <strong>TasksFiles/Ken</strong>.
-            </p>
-            <p>
-              Spill av lydene og løs oppgavene. Bruk teksten i V1.txt og V2.txt
-              som hint.
-            </p>
           </div>
           <div class="task-details">
             <h3>Oppgave (Julerebusoppgave.mp3)</h3>
-            <p>Hint (V1.txt): Om du ikke ser lyder, jobber du ikke hardt nok.</p>
-            <audio controls src="../TasksFiles/Ken/Oppgave1/Julerebusoppgave.mp3"></audio>
-            <h3>Oppgave 1 (Julerebusoppgave.mp3)</h3>
             <p>
               Hint (V1.txt): Om du ikke ser lyder, jobber du ikke hardt nok.
             </p>
@@ -447,13 +427,14 @@
               controls
               src="../TasksFiles/Ken/Oppgave1/Julerebusoppgave.mp3"
             ></audio>
-
-            <h3 style="margin-top: 20px">Oppgave 2 (KenV2.mp3)</h3>
-            <p>
-              Hint (V2.txt): Her er det flere fellesnevnere, klarer du å finne
-              den rette?
-            </p>
-            <audio controls src="../TasksFiles/Ken/oppgave2/KenV2.mp3"></audio>
+            <div style="margin-top: 10px">
+              <a
+                class="complete-btn"
+                href="../TasksFiles/Ken/Oppgave1/Julerebusoppgave.mp3"
+                download
+                >Last ned lydfil</a
+              >
+            </div>
           </div>
           <div class="task-actions">
             <button class="complete-btn" onclick="completeTask(4)">
@@ -477,13 +458,20 @@
         <div class="task-content">
           <h2>Oppgave 5: Ken 2 – Fellesnevner</h2>
           <div class="task-description">
-            <p>Andre lydoppgave ligger i mappen <strong>TasksFiles/Ken/oppgave2</strong>.</p>
             <p>Spill av lyden og bruk teksten i V2.txt som hint.</p>
           </div>
           <div class="task-details">
             <h3>Oppgave (KenV2.mp3)</h3>
             <p>Hint (V2.txt): Her er det flere fellesnevnere, klarer du å finne den rette?</p>
-            <audio controls src="../TasksFiles/Ken/oppgave2/KenV2.mp3"></audio>
+            <audio controls src="../TasksFiles/Ken2/oppgave2/KenV2.mp3"></audio>
+            <div style="margin-top: 10px">
+              <a
+                class="complete-btn"
+                href="../TasksFiles/Ken2/oppgave2/KenV2.mp3"
+                download
+                >Last ned lydfil</a
+              >
+            </div>
           </div>
           <div class="task-actions">
             <button class="complete-btn" onclick="completeTask(5)">
@@ -506,7 +494,6 @@
         <div class="task-content">
           <h2>Oppgave 6: I Spy With My Eye</h2>
           <div class="task-description">
-            <p>Se bildeoppgaven i <strong>TasksFiles/Andrea</strong>.</p>
             <p>I spy with my little eye…
               A place full of stories, gifts, and games,
               Triangles repeat, but not all mean the same.
@@ -567,7 +554,6 @@
         <div class="task-content">
           <h2>Oppgave 7: Håkon</h2>
           <div class="task-description">
-            <p>Oppgave i <strong>TasksFiles/Håkon</strong>.</p>
             <p>
               For å løse den fullt ut trenger du Blender installert og litt
               grunnleggende Blender-kunnskap for å åpne og utforske scenen i
@@ -611,7 +597,6 @@
         <div class="task-content">
           <h2>Oppgave 8: Frode</h2>
           <div class="task-description">
-            <p>Oppgaven ligger i mappen <strong>TasksFiles/Frode</strong>.</p>
             <p>Les teksten og se bildet for å løse Grinch-rebusen.</p>
           </div>
           <div class="task-details">
