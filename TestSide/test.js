@@ -196,6 +196,17 @@ function createSnowflake() {
 
 setInterval(createSnowflake, 300);
 
+// Download funksjon
+function downloadFile(filename, content) {
+  const element = document.createElement('a');
+  const file = new Blob([content], { type: 'text/plain' });
+  element.href = URL.createObjectURL(file);
+  element.download = filename;
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
+}
+
 // Fullskjerm og zoom for Andrea-bildet
 function setupAndreaImageModal() {
   const preview = document.getElementById("andreaPreview");
@@ -271,3 +282,4 @@ function setupAndreaImageModal() {
     resetTransform();
   });
 }
+
