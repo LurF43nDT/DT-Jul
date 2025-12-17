@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (skrevetPassord === RIKTIG_PASSORD) {
       // Riktig passord: send brukeren videre til "hemmelig" side
       // Bytt URL under til siden de skal inn på
-      window.location.href = "../index.html";
+      window.location.href = "../TestSide/Innlogging.html";
     } else {
       // Feil passord: vis en feilmelding
       feilMelding.textContent = "Feil passord. Prøv igjen.";

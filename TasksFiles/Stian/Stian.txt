@@ -1,0 +1,92 @@
+  <p>Del 1. Lineær Algebra</p>
+    <p>Del 2. Js grid</p>
+
+    // Lage hints, hvor man går i minus for hvert hint man bruker. //
+
+    <h2>Oppgave 1</h2>
+    <p>Kan løses med kode eller på papir</p>
+    <p>
+      Oppgave: Multipliser matrise A med kolonnevektoren v <br />
+      for å finne resultatvektoren: "u = A⋅v" <br />
+      <br />
+      # Regn ut alle multiplikasjonene og summer for <br />
+      hver verdi. <br />
+      # Ta verdien av andre variabel i array-A - altså verdien i rad 2 i
+      resultatvektoren.
+      <br />
+      Del denne verdien på 42 for å finne sluttresultatet. <br />
+      <br />
+      Spørsmål: Hva blir sluttresultatet etter <br />
+      at du har delt verdien i andre rad på 42? <br />
+    </p>
+
+    <p hidden>
+      Hints: #1. Lineær Algebra. #2. dot-product formula. #3.
+      https://www.youtube.com/watch?v=uQhTuRlWMxw&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&index=7
+    </p>
+
+    <h2>Oppgave 2</h2>
+    <p>Kan løses med kode</p>
+
+    <p>
+      Oppgave tekst: Lag en loop som går over et ukjent array "uArray", så leter
+      etter en karrakter som delt på 6 = 7
+    </p>
+    <h4 id="svar2"></h4>
+
+    <button class=""></button>
+    <script>
+      const A = [
+        [4, 3, 1],
+        [5, 4, 19],
+        [7, 2, 5],
+      ];
+
+      const v = [6, 8, 10];
+
+      function matVec() {}
+
+      const result = matVec();
+
+      console.log();
+
+      const svar2 = document.getElementById("svar2");
+
+      const uArray = [
+        { E: 88.7 },
+        { C: 28 },
+        { B: 77.3 },
+        { G: 99.9 },
+        { D: 190.4 },
+        { L: 26.7 },
+        { K: 144.8 },
+        { I: 72.6 },
+        { O: 134.5 },
+        { F: 45.12 },
+        { P: 77.77 },
+        { H: 160.3 },
+        { J: 33.33 },
+        { A: 42 },
+        { Q: 22.22 },
+        { T: 87.65 },
+        { M: 111.1 },
+        { Z: 73.11 },
+        { U: 123.45 },
+        { X: 5.5 },
+        { S: 39.9 },
+        { W: 199.99 },
+        { V: 10.0 },
+        { Y: 42.42 },
+        { R: 150.0 },
+        { N: 18.2 },
+      ];
+
+      for (let i = 0; i < uArray.length; i++) {
+        const obj = uArray[i];
+        const key = Object.keys(obj)[0];
+        const value = obj[key];
+
+        if (value / 6 === 7) {
+          svar2.innerHTML = key;
+        }
+      }
