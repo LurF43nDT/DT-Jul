@@ -2,6 +2,19 @@
 let currentUser = "";
 let userData = {};
 
+// Last inn nåværende bruker fra localStorage
+function loadCurrentUser() {
+  const saved = localStorage.getItem("currentUser");
+  if (saved) {
+    currentUser = saved;
+  }
+}
+
+// Lagre nåværende bruker til localStorage
+function saveCurrentUser() {
+  localStorage.setItem("currentUser", currentUser);
+}
+
 // Liste over tilgjengelige oppgaver (speiler mappene i TasksFiles/)
 const TASKS = [
   { id: 1, name: "Matematisk Juletraume" },
@@ -23,6 +36,7 @@ function loadData() {
   if (saved) {
     userData = JSON.parse(saved);
   }
+  loadCurrentUser();
 }
 
 // Lagre data til localStorage
@@ -41,6 +55,7 @@ function handleLogin(event) {
   }
 
   currentUser = username.trim();
+  saveCurrentUser();
 
   // Opprett bruker hvis de ikke eksisterer
   if (!userData[currentUser]) {
@@ -53,33 +68,77 @@ function handleLogin(event) {
   alert("Velkommen, " + currentUser + "! 🎄");
   showPage("tasks");
   updateProgressPage();
+  updateTaskButtonStates();
 }
 
-// Marker oppgave som fullført
-function completeTask(taskNumber) {
+// Marker eller fjern markering av oppgave som fullført
+function completeTask(taskNumber, event) {
   if (!currentUser) {
     alert("Du må logge inn først!");
     showPage("login");
     return;
   }
 
-  if (!userData[currentUser].completedTasks.includes(taskNumber)) {
+  const btn = event.target;
+  const isCompleted = userData[currentUser].completedTasks.includes(taskNumber);
+
+  if (isCompleted) {
+    // Fjern fra fullførte oppgaver
+    userData[currentUser].completedTasks = userData[
+      currentUser
+    ].completedTasks.filter((id) => id !== taskNumber);
+    saveData();
+    updateProgressPage();
+
+    // Oppdater knappen visuelt
+    btn.classList.remove("completed");
+    btn.innerHTML = "✓ Marker som gjort";
+
+    alert("Oppgave " + taskNumber + " er ikke lenger markert som fullført.");
+  } else {
+    // Legg til som fullført
     userData[currentUser].completedTasks.push(taskNumber);
     saveData();
     updateProgressPage();
-    alert("🎉 Gratulerer! Oppgave " + taskNumber + " er fullført!");
 
     // Oppdater knappen visuelt
-    const btn = event.target;
     btn.classList.add("completed");
     btn.innerHTML = "✓ Fullført!";
-  } else {
-    alert("Du har allerede fullført denne oppgaven! 🎄");
+
+    alert("🎉 Gratulerer! Oppgave " + taskNumber + " er fullført!");
+  }
+}
+
+// Oppdater knappestater basert på lagrede data
+function updateTaskButtonStates() {
+  if (!currentUser) return;
+
+  for (let i = 1; i <= TASKS.length; i++) {
+    const btn = document.querySelector(`#task${i} .complete-btn`);
+    if (btn) {
+      const isCompleted = userData[currentUser].completedTasks.includes(i);
+      if (isCompleted) {
+        btn.classList.add("completed");
+        btn.innerHTML = "✓ Fullført!";
+      } else {
+        btn.classList.remove("completed");
+        btn.innerHTML = "✓ Marker som gjort";
+      }
+    }
   }
 }
 
 // Last inn data ved oppstart
 loadData();
+
+// Sjekk om bruker allerede er logget inn
+if (currentUser && userData[currentUser]) {
+  showPage("tasks");
+  updateTaskButtonStates();
+} else {
+  showPage("home"); // Vis hjemmesiden hvis ikke logget inn
+}
+
 updateProgressPage();
 setupHintGridModal();
 setupAndreaImageModal();
@@ -98,7 +157,8 @@ function downloadFile(filename, content) {
 // Håndter innsending av slutt-passord
 function submitFinalPassword(event) {
   event.preventDefault();
-  const RIKTIG_PASSORD_HASH = "2230a7fbc1c746aa0107d9d16db637fd9b20eb632ef5ae42cca6f5ba861b16e8";
+  const RIKTIG_PASSORD_HASH =
+    "2230a7fbc1c746aa0107d9d16db637fd9b20eb632ef5ae42cca6f5ba861b16e8";
   const input = document.getElementById("finalPasswordInput");
   if (!input) return;
   const value = input.value.trim();

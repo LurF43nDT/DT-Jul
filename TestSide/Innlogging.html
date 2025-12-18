@@ -84,6 +84,13 @@
       
     
       <div class="menu-wrapper">
+
+        <a
+        href="#"
+        class="btnOversikt"
+        onclick="showPage('tasks'); return false;"
+        style="background: #c41e3a;"
+        >Oppgaver</a>
         <a
       href="#"
       class="btnOversikt"
@@ -91,7 +98,9 @@
       style="background: #c41e3a;"
       >Se statistikk</a>
 
-        <button
+     
+
+        <!-- <button
           class="menu-trigger"
           aria-label="Åpne meny"
           aria-expanded="false"
@@ -99,15 +108,15 @@
           onclick="toggleMenu(event)"
         >
         🎄
-        </button>
-        <div class="menu-dropdown" id="headerMenu">
+        </button> -->
+        <!-- <div class="menu-dropdown" id="headerMenu">
           <a href="#" onclick="showPage('tasks'); hideMenu(); return false;"
             >View julerebus</a
           >
           <a href="#" onclick="showPage('progress'); hideMenu(); return false;"
             >Se statistikk</a
           >
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -341,7 +350,7 @@
           </div>
 
           <div class="task-actions">
-            <button class="complete-btn" onclick="completeTask(1)">
+            <button class="complete-btn" onclick="completeTask(1, event)">
               ✓ Marker som gjort
             </button>
             <a
@@ -384,7 +393,7 @@
             />
           </div>
           <div class="task-actions">
-            <button class="complete-btn" onclick="completeTask(2)">
+            <button class="complete-btn" onclick="completeTask(2, event)">
               ✓ Marker som gjort
             </button>
             <a
@@ -425,7 +434,7 @@
           
           </div>
           <div class="task-actions">
-            <button class="complete-btn" onclick="completeTask(3)">
+            <button class="complete-btn" onclick="completeTask(3, event)">
               ✓ Marker som gjort
             </button>
             <a
@@ -466,7 +475,7 @@
             </div>
           </div>
           <div class="task-actions">
-            <button class="complete-btn" onclick="completeTask(4)">
+            <button class="complete-btn" onclick="completeTask(4, event)">
               ✓ Marker som gjort
             </button>
             <a
@@ -505,7 +514,7 @@
             </div>
           </div>
           <div class="task-actions">
-            <button class="complete-btn" onclick="completeTask(5)">
+            <button class="complete-btn" onclick="completeTask(5, event)">
               ✓ Marker som gjort
             </button>
             <a
@@ -547,7 +556,7 @@
             />
           </div>
           <div class="task-actions">
-            <button class="complete-btn" onclick="completeTask(6)">
+            <button class="complete-btn" onclick="completeTask(6, event)">
               ✓ Marker som gjort
             </button>
             <a
@@ -614,7 +623,7 @@
             <img src="./public/Håkon.webp" alt="Bildet" width="450" />
           </div>
           <div class="task-actions">
-            <button class="complete-btn" onclick="completeTask(7)">
+            <button class="complete-btn" onclick="completeTask(7, event)">
               ✓ Marker som gjort
             </button>
             <a
@@ -661,7 +670,7 @@
             />
           </div>
           <div class="task-actions">
-            <button class="complete-btn" onclick="completeTask(8)">
+            <button class="complete-btn" onclick="completeTask(8, event)">
               ✓ Marker som gjort
             </button>
 
@@ -697,7 +706,7 @@
             </p>
           </div>
           <div class="task-actions">
-            <button class="complete-btn" onclick="completeTask(9)">
+            <button class="complete-btn" onclick="completeTask(9, event)">
               ✓ Marker som gjort
             </button>
             <a
@@ -713,7 +722,7 @@
     <!-- Oversikt/Progress side -->
     <div class="page" id="progress">
       <header>
-        <h1>Oversikt</h1>
+        <h1 style="color: #ffb700;">Oversikt</h1>
         <p class="subtitle">Se hvem som har fullført oppgavene</p>
       </header>
       <div class="progress-container">
