@@ -110,7 +110,7 @@ function showSuccessPopup() {
 
 function showErrorPopup() {
   const modal = createModal("errorModal", `
-    <video src="./public/slått-kattepus.mp4" autoplay muted loop style="max-width: 100%; border-radius: 10px;"></video>
+    <video src="./public/slått-kattepus.mp4" autoplay loop style="max-width: 100%; border-radius: 10px;"></video>
   `);
   document.body.appendChild(modal);
   modal.classList.add("open");
