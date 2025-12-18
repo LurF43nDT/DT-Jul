@@ -166,7 +166,7 @@ h1 {
 }
 
 .btnOversikt {
-  display: inline-block;
+  /* display: inline-block; */
   padding: 15px 40px;
   color: white;
   text-decoration: none;
@@ -174,8 +174,20 @@ h1 {
   font-size: 1.1em;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(196, 30, 30, 0.4);
-  position: relative;
-  left: 470px;
+  /* position: relative; */
+  /* left: 370px; */
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-wrapper {
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .btnOversikt:hover {
