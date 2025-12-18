@@ -30,15 +30,6 @@ function saveData() {
   localStorage.setItem("christmasProgress", JSON.stringify(userData));
 }
 
-// Lagre og hent slutt-passord lokalt
-function saveFinalPassword(value) {
-  localStorage.setItem("finalPassword", value);
-}
-
-function loadFinalPassword() {
-  return localStorage.getItem("finalPassword") || "";
-}
-
 // Håndter innlogging
 function handleLogin(event) {
   event.preventDefault();
@@ -115,7 +106,6 @@ function submitFinalPassword(event) {
     alert("Skriv inn passordet før du sender inn.");
     return;
   }
-  saveFinalPassword(value);
   if (Sha256.hash(value.toLowerCase()) === RIKTIG_PASSORD_HASH) {
     showSuccessPopup();
   } else {

@@ -69,11 +69,7 @@ function updateProgressPage() {
     updateLeaderboard(userData);
   }
 
-  // Fyll inn lagret passord hvis det finnes
-  const finalPasswordInput = document.getElementById("finalPasswordInput");
-  if (finalPasswordInput) {
-    finalPasswordInput.value = loadFinalPassword();
-  }
+
 }
 
 // Header-meny
