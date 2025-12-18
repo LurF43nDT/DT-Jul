@@ -142,19 +142,19 @@
 
     <!-- Forside -->
     <div class="page" id="home">
-      <header>
-        <h1>Julerebus 2024</h1>
-        <p class="subtitle">Velkommen til årets juleoppgaver</p>
-      </header>
+    
       <div class="hero">
         <div class="hero-content">
-          <h2>God Jul!</h2>
+          <header>
+            <h1 style="color: #165b33;">Julerebus 2024</h1>
+            <p class="subtitle">Velkommen til årets juleoppgaver</p>
+          </header>
           <p>
             Gleder deg til julen? Her finner du 7 spennende juleoppgaver som
             gjør ventetiden til julaften ekstra koselig. Hver oppgave er full av
             julestemning og moro!
           </p>
-          <p>Klikk på knappen under for å starte eventyr</p>
+          <p style="margin: 0px;">Klikk på knappen under for å starte eventyr</p>
           <a href="#" class="btn" onclick="showPage('tasks'); return false;"
             >Start julerebusen</a
           >
@@ -165,6 +165,28 @@
             style="background: #165b33; margin-top: 15px"
             >Se oversikt</a
           >
+        </div>
+        <div class="progress-card">
+          <h2>Sluttpassord</h2>
+          <p>
+            Når alle oppgaver er løst, skriv inn passordet du har funnet og
+            lagre det her. Feltet huskes i nettleseren.
+          </p>
+          <form onsubmit="submitFinalPassword(event)" class="login-form">
+            <div class="form-group">
+              <label for="finalPasswordInput">Passord</label>
+              <img src="../Hint grid.png" id="hintGridIcon" alt="Show Hint Grid" title="Click to view the Hint Grid" style="width: 30px; height: 30px; vertical-align: middle; margin: 8px; cursor: pointer;">
+              <span style="margin-left: 5px; vertical-align: middle; color: #333; font-size: 0.95em;">Hint Grid</span>
+              <input
+                type="text"
+                id="finalPasswordInput"
+                name="finalPasswordInput"
+                placeholder="Skriv inn passordet"
+                required
+              />
+            </div>
+            <button type="submit" class="login-btn">Lagre passord</button>
+          </form>
         </div>
       </div>
 
@@ -725,28 +747,7 @@
           </div>
         </div>
 
-        <div class="progress-card">
-          <h2>Sluttpassord</h2>
-          <p>
-            Når alle oppgaver er løst, skriv inn passordet du har funnet og
-            lagre det her. Feltet huskes i nettleseren.
-          </p>
-          <form onsubmit="submitFinalPassword(event)" class="login-form">
-            <div class="form-group">
-              <label for="finalPasswordInput">Passord</label>
-              <img src="../Hint grid.png" id="hintGridIcon" alt="Show Hint Grid" title="Click to view the Hint Grid" style="width: 30px; height: 30px; vertical-align: middle; margin: 8px; cursor: pointer;">
-              <span style="margin-left: 5px; vertical-align: middle; color: #333; font-size: 0.95em;">Hint Grid</span>
-              <input
-                type="text"
-                id="finalPasswordInput"
-                name="finalPasswordInput"
-                placeholder="Skriv inn passordet"
-                required
-              />
-            </div>
-            <button type="submit" class="login-btn">Lagre passord</button>
-          </form>
-        </div>
+        
       </div>
     </div>
 
