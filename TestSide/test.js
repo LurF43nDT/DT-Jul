@@ -4,14 +4,15 @@ let userData = {};
 
 // Liste over tilgjengelige oppgaver (speiler mappene i TasksFiles/)
 const TASKS = [
-  { id: 1, name: "Stian" },
-  { id: 2, name: "Lucifer" },
+  { id: 1, name: "Matematisk Juletraume" },
+  { id: 2, name: "Vanvettig god jul" },
   { id: 3, name: "Present Hunt" },
-  { id: 4, name: "Ken: Lydbølger" },
-  { id: 5, name: "Ken 2: Fellesnevner" },
-  { id: 6, name: "I Spy With My Eye" },
-  { id: 7, name: "Håkon" },
-  { id: 8, name: "Frode" },
+  { id: 4, name: "Lydbølger" },
+  { id: 5, name: "Fellesnevner" },
+  { id: 6, name: "My eye spy" },
+  { id: 7, name: "Bestemors Kjøkken" },
+  { id: 8, name: "Grinch-rebus" },
+  { id: 9, name: "Web Puzzle" },
 ];
 
 console.log("JavaScript loaded successfully!");
@@ -94,8 +95,8 @@ setupAndreaImageModal();
 
 // Download funksjon
 function downloadFile(filename, content) {
-  const element = document.createElement('a');
-  const file = new Blob([content], { type: 'text/plain' });
+  const element = document.createElement("a");
+  const file = new Blob([content], { type: "text/plain" });
   element.href = URL.createObjectURL(file);
   element.download = filename;
   document.body.appendChild(element);
@@ -116,5 +117,3 @@ function submitFinalPassword(event) {
   saveFinalPassword(value);
   alert("Passord lagret! Du kan lukke eller oppdatere siden uten å miste det.");
 }
-
-
