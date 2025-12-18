@@ -132,6 +132,28 @@ h1 {
   box-shadow: 0 6px 20px rgba(196, 30, 58, 0.6);
 }
 
+.open-btn {
+  flex: 1;
+  min-width: 100px;
+  padding: 7px 15px;
+  margin: 4px;
+  background: #c41e3a;
+  color: #fffdfd;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* box-shadow: 0 4px 15px rgba(0, 255, 34, 0.4); */
+  text-align: center;
+  display: inline-block;
+}
+
+.open-btn:hover {
+  transform: translateY(-2px);
+}
+
 .btnOversikt {
   display: inline-block;
   padding: 15px 40px;
@@ -302,8 +324,8 @@ h1 {
 }
 
 .back-btn:hover {
-  background: #165b33;
   transform: translateY(-2px);
+  background: #0f3d21;
 }
 
 /* Progress/Oversikt side */
