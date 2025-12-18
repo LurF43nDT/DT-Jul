@@ -60,7 +60,7 @@ function handleLogin(event) {
   }
 
   alert("Velkommen, " + currentUser + "! 🎄");
-  showPage("home");
+  showPage("tasks");
   updateProgressPage();
 }
 
