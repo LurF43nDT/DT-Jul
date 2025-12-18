@@ -109,6 +109,7 @@ function showSuccessPopup() {
   `);
   document.body.appendChild(modal);
   modal.classList.add("open");
+  console.log(typeof confetti);
   confetti({
     particleCount: 100,
     spread: 70,
