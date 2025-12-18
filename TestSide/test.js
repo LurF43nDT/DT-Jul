@@ -107,7 +107,7 @@ function downloadFile(filename, content) {
 // Håndter innsending av slutt-passord
 function submitFinalPassword(event) {
   event.preventDefault();
-  const RIKTIG_PASSORD = "pepperkakedeig";
+  const RIKTIG_PASSORD_HASH = "2230a7fbc1c746aa0107d9d16db637fd9b20eb632ef5ae42cca6f5ba861b16e8";
   const input = document.getElementById("finalPasswordInput");
   if (!input) return;
   const value = input.value.trim();
@@ -116,7 +116,7 @@ function submitFinalPassword(event) {
     return;
   }
   saveFinalPassword(value);
-  if (value.toLowerCase() === RIKTIG_PASSORD.toLowerCase()) {
+  if (Sha256.hash(value.toLowerCase()) === RIKTIG_PASSORD_HASH) {
     showSuccessPopup();
   } else {
     showErrorPopup();
