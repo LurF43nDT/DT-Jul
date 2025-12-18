@@ -53,7 +53,8 @@ header {
   text-align: center;
   padding-left: 40px;
   padding-right: 40px;
-  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   color: white;
   position: relative;
 }
@@ -172,7 +173,9 @@ h1 {
   border-radius: 5px;
   font-size: 1.1em;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(30, 196, 33, 0.4);
+  box-shadow: 0 4px 15px rgba(196, 30, 30, 0.4);
+  position: relative;
+  left: 470px;
 }
 
 .btnOversikt:hover {
