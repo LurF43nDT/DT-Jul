@@ -102,10 +102,18 @@ function setupHintGridModal() {
 
 function showSuccessPopup() {
   const modal = createModal("successModal", `
-    <img src="./public/RightPassword.gif" alt="Correct Password" style="max-width: 100%; border-radius: 10px;">
+    <div class="success-popup">
+      <h1 class="success-text">You did it!</h1>
+      <img src="./public/RightPassword.gif" alt="Correct Password" style="max-width: 100%; border-radius: 10px;">
+    </div>
   `);
   document.body.appendChild(modal);
   modal.classList.add("open");
+  confetti({
+    particleCount: 100,
+    spread: 70,
+    origin: { y: 0.6 }
+  });
 }
 
 function showErrorPopup() {
