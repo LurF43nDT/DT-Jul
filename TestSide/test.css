@@ -321,6 +321,23 @@ h1 {
   margin-bottom: 30px;
 }
 
+/* Overrides for 'Om rebusen' section */
+#rebusInfo {
+  background: none;
+  box-shadow: none;
+  padding: 20px 0; /* Add some vertical padding */
+  text-align: center;
+}
+
+#rebusInfo h2 {
+  color: #ffd700;
+  border-bottom: none;
+}
+
+#rebusInfo p {
+  color: #fff;
+}
+
 /* Fullscreen bildevisning for Andrea-oppgaven */
 .image-modal {
   position: fixed;
