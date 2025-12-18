@@ -107,6 +107,7 @@ function downloadFile(filename, content) {
 // Håndter innsending av slutt-passord
 function submitFinalPassword(event) {
   event.preventDefault();
+  const RIKTIG_PASSORD = "pepperkakedeig";
   const input = document.getElementById("finalPasswordInput");
   if (!input) return;
   const value = input.value.trim();
@@ -115,5 +116,9 @@ function submitFinalPassword(event) {
     return;
   }
   saveFinalPassword(value);
-  alert("Passord lagret! Du kan lukke eller oppdatere siden uten å miste det.");
+  if (value.toLowerCase() === RIKTIG_PASSORD.toLowerCase()) {
+    showSuccessPopup();
+  } else {
+    showErrorPopup();
+  }
 }

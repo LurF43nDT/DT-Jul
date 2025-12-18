@@ -88,7 +88,7 @@
       class="btnOversikt"
       onclick="showPage('progress'); return false;"
       style="background: #c41e3a;"
-      >Se oversikt</a>
+      >Se statistikk</a>
 
         <button
           class="menu-trigger"
@@ -104,7 +104,7 @@
             >View julerebus</a
           >
           <a href="#" onclick="showPage('progress'); hideMenu(); return false;"
-            >Se oversikt</a
+            >Se statistikk</a
           >
         </div>
       </div>
@@ -227,7 +227,7 @@
                 required
               />
             </div>
-            <button type="submit" class="login-btn">Lagre passord</button>
+            <button type="submit" class="login-btn">Check Password</button>
           </form>
         </div>
 
@@ -763,6 +763,20 @@
       <div class="simple-modal__content">
         <button class="simple-modal__close" id="simpleModalClose" aria-label="Lukk">&times;</button>
         <img id="simpleModalImg" class="simple-modal__img" src="" alt="Hint Grid"/>
+      </div>
+    </div>
+
+    <div class="simple-modal" id="successModal">
+      <div class="simple-modal__content">
+        <button class="simple-modal__close" aria-label="Lukk">&times;</button>
+        <img src="./public/RightPassword.gif" alt="Correct Password" style="max-width: 100%; border-radius: 10px;">
+      </div>
+    </div>
+
+    <div class="simple-modal" id="errorModal">
+      <div class="simple-modal__content">
+        <button class="simple-modal__close" aria-label="Lukk">&times;</button>
+        <video src="./public/slått-kattepus.mp4" autoplay muted loop style="max-width: 100%; border-radius: 10px;"></video>
       </div>
     </div>
 
