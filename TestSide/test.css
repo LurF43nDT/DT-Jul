@@ -49,6 +49,14 @@ header {
   position: relative;
 }
 
+.oppgaver {
+  text-align: center;
+  padding: 0px 20px;
+  width: 100%;
+  color: white;
+  position: relative;
+}
+
 .logo {
   position: absolute;
   top: 20px;
