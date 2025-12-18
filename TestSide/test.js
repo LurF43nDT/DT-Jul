@@ -107,7 +107,7 @@ function downloadFile(filename, content) {
 // Håndter innsending av slutt-passord
 function submitFinalPassword(event) {
   event.preventDefault();
-  const RIKTIG_PASSORD = "jul2024";
+  const RIKTIG_PASSORD = "pepperkakedeig";
   const input = document.getElementById("finalPasswordInput");
   if (!input) return;
   const value = input.value.trim();
@@ -116,7 +116,7 @@ function submitFinalPassword(event) {
     return;
   }
   saveFinalPassword(value);
-  if (value === RIKTIG_PASSORD) {
+  if (value.toLowerCase() === RIKTIG_PASSORD.toLowerCase()) {
     showSuccessPopup();
   } else {
     showErrorPopup();
