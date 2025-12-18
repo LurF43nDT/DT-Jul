@@ -804,3 +804,17 @@ h1 {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
+.success-popup {
+  position: relative;
+}
+
+.success-text {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
