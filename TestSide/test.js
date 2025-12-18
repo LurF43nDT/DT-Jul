@@ -11,7 +11,7 @@ const TASKS = [
   { id: 5, name: "Fellesnevner" },
   { id: 6, name: "My eye spy" },
   { id: 7, name: "Bestemors Kjøkken" },
-  { id: 8, name: "Grinch-rebus" },
+  { id: 8, name: "Hueville" },
   { id: 9, name: "Web Puzzle" },
 ];
 
